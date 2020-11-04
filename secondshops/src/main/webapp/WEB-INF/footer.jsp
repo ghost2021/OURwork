@@ -2,6 +2,6 @@
 	pageEncoding="UTF-8"%>
 <footer class="footer">
 	<p>
-		&nbsp;版权所有&nbsp;©&nbsp;2019
+		&nbsp;版权所有&nbsp;©&nbsp;2020
 	</p>
 </footer>
