@@ -10,11 +10,10 @@
 	href="<c:url value="/statics/bootstrap-3.3.0/css/bootstrap.css"/>">
 <link rel="stylesheet" href="<c:url value="/statics/css/style.css"/>">
 </head>
-<body
-	style="background-image: url(<c:url value="/statics/image/background/background2.jpg"/>); background-size: cover">
+<body style="background:#e7f6e7">
 	<div style="margin: 20px auto">
 		<div style="margin: 100px auto; margin-bottom: 40px" align="center">
-			<h1 style="font-size: 60px; color: #ffffff">管理员登录</h1>
+			<h1 style="font-size: 60px; color: black">管理员登录</h1>
 		</div>
 	</div>
 

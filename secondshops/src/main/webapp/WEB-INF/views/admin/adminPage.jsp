@@ -24,8 +24,7 @@ a {
 </style>
 </head>
 <body>
-	<nav class="navbar navbar-default navbar-fixed-top" role="navigation"
-		style="background-color: #dcdcdc">
+	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 	<div class="container">
 		<div class="navbar-header">
 			<a class="navbar-brand" style="font-size: 25px">校园二手交易平台后台管理</a>
@@ -35,7 +34,7 @@ a {
 			<ul class="nav navbar-nav navbar-right">
 				<li><a>${sessionScope.admin.getName()}</a></li>
 				<li><a
-					href="/wzh-secondshop/admin/adminLogout?adminLogout=true">退出</a></li>
+					href="/secondshop/admin/adminLogout?adminLogout=true">退出</a></li>
 			</ul>
 		</div>
 	</div>
@@ -44,8 +43,8 @@ a {
 	<div class="col-md-12" style="height: 50px"></div>
 	<div class="container" style="width: 100%; padding: 0px">
 		<div class="col-md-2"
-			style="background-color: #d2d2d2; height: 92%; padding: 0px;">
-			<div style="float: right; width: 100%;">
+			style="height: 92%; padding: 0px;">
+			<div style="float: right; width: 100%; background: white">
 				<div id="menu1" onclick="menuBar('menu1')" class="admenu-b"
 					align="center">
 					<p>
@@ -77,7 +76,7 @@ a {
 		</div>
 		
 		<div id="menu-context" class="col-md-10"
-			style="background-color: #f3f3f3; height: 92%; padding-left: 0px; padding-right: 30px; float: right;">
+			style="height: 92%; padding-left: 0px; padding-right: 30px; float: right;">
 			<div id="menu1-context" class="col-md-12">
 				<div class="col-md-12" align="center">
 					<h3>物品分类管理</h3>
@@ -86,7 +85,7 @@ a {
 				<div class="col-md-12 r"
 					style="background-color: #ffffff; height: 78%; margin: 15px; margin-top: 5px; padding: 15px">
 					<div class="col-md-12"
-						style="background-color: #f3f3f3; height: 100%; padding: 15px">
+						style=" height: 100%; padding: 15px">
 						<div class="col-md-6" style="height: 100%;">
 							<div class="col-md-12" align="center" style="margin-bottom: 5px">
 								<h4>一级分类</h4>
@@ -104,7 +103,7 @@ a {
 								</div>
 								
 								<div id="fir" class="col-md-9 r"
-									style="display: none; padding: 15px; background-color: #f3f3f3;">
+									style="display: none; padding: 15px; ">
 									<div class="form-group">
 										<label for="addfirst">一级分类名称</label> <input id="addfirst"
 											class="form-control" type="text">
@@ -135,7 +134,7 @@ a {
 								</div>
 								
 								<div id="sec" class="col-md-9 r"
-									style="display: none; padding: 15px; background-color: #f3f3f3;">
+									style="display: none; padding: 15px; ">
 									<div class="form-group">
 										<label for="addsecond">二级分类名称</label> <input id="addsecond"
 											class="form-control" type="text">
@@ -372,7 +371,7 @@ a {
         };
         $.ajax({
             type:"POST",
-            url:"/wzh-secondshop/type/firstType/create",
+            url:"/secondshop/type/firstType/create",
             contentType: "application/json", //必须这样写
             dataType:"json",
             data:JSON.stringify(newFirstType),//要提交是json字符串
@@ -405,7 +404,7 @@ a {
         };
         $.ajax({
             type:"POST",
-            url:"/wzh-secondshop/type/secondType/create",
+            url:"/secondshop/type/secondType/create",
             contentType: "application/json", //必须这样写
             dataType:"json",
             data:JSON.stringify(newSecondType),//要提交是json字符串
@@ -431,7 +430,7 @@ a {
     }
 
     function deleteFirst(first_id) {
-        $.getJSON("/wzh-secondshop/type/firstType/delete/"+first_id, function (data) {
+        $.getJSON("/secondshop/type/firstType/delete/"+first_id, function (data) {
             if (data === false){
                 alert("删除失败，请确认该分类下是否还有二级分类！");
             } else {
@@ -449,7 +448,7 @@ a {
     }
 
     function deleteSecond(second_id) {
-        $.getJSON("/wzh-secondshop/type/secondType/delete/"+second_id, function (data) {
+        $.getJSON("/secondshop/type/secondType/delete/"+second_id, function (data) {
             if (data === false){
                 alert("删除失败，请确认该分类下是否还有物品！");
             } else if (data === "isNull") {
@@ -476,7 +475,7 @@ a {
         $(firstId).removeClass("adUlLi").addClass("adUlLi-a");
         document.getElementById("secondType-ba").innerHTML = "";
         document.getElementById("addSecondBtn").style.display = "";
-        $.getJSON("/wzh-secondshop/type/secondType/"+first_id, function (data) {
+        $.getJSON("/secondshop/type/secondType/"+first_id, function (data) {
             if (data === false){
                 alert("好像出了问题，请重试！")
             } else if (data === "isNull") {
@@ -542,7 +541,7 @@ a {
     }
 
     function setUserStatus(statusId, userId) {
-        $.getJSON("/wzh-secondshop/admin/user/update/status/"+statusId+"&"+userId, function (data) {
+        $.getJSON("/secondshop/admin/user/update/status/"+statusId+"&"+userId, function (data) {
             if (data === false){
                 alert("用户状态修改失败！");
             } else {
@@ -574,7 +573,7 @@ a {
     }
     
     function delUser(userId) {
-        $.getJSON("/wzh-secondshop/admin/user/delete/"+userId, function (data) {
+        $.getJSON("/secondshop/admin/user/delete/"+userId, function (data) {
             if (data === false){
                 alert("用户删除失败！");
             } else {
@@ -625,9 +624,9 @@ a {
     }
 
     function delOrder(orderId) {
-        $.getJSON("/wzh-secondshop/user/order/delete/"+orderId, function (data) {
+        $.getJSON("/secondshop/user/order/delete/"+orderId, function (data) {
             if (data){
-                $.getJSON("/wzh-secondshop/user/order/allOrder", function (data) {
+                $.getJSON("/secondshop/user/order/allOrder", function (data) {
                     document.getElementById("orderTable").innerHTML = "";
                     $.each(data, function (i, type) {
                         var orderId = type.id;
@@ -691,9 +690,9 @@ a {
     }
 
     function delGood(goodId) {
-        $.getJSON("/wzh-secondshop/goods/userGoodEdit/delete/"+goodId, function (data) {
+        $.getJSON("/secondshop/goods/userGoodEdit/delete/"+goodId, function (data) {
             if (data){
-                $.getJSON("/wzh-secondshop/admin/goods/allGoods", function (data) {
+                $.getJSON("/secondshop/admin/goods/allGoods", function (data) {
                     document.getElementById("goodTable").innerHTML = "";
                     $.each(data, function (i, type) {
                         var goodId = type.id;
@@ -723,9 +722,9 @@ a {
     }
 
     function setStatus(goodId) {
-        $.getJSON("/wzh-secondshop/goods/userGoodEdit/updateGoodStatus/"+goodId, function (data) {
+        $.getJSON("/secondshop/goods/userGoodEdit/updateGoodStatus/"+goodId, function (data) {
             if (data){
-                $.getJSON("/wzh-secondshop/admin/goods/allGoods", function (data) {
+                $.getJSON("/secondshop/admin/goods/allGoods", function (data) {
                     document.getElementById("goodTable").innerHTML = "";
                     $.each(data, function (i, type) {
                         var goodId = type.id;

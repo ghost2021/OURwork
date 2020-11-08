@@ -16,8 +16,7 @@
 <link rel="stylesheet"
 	href="<c:url value="/statics/jquery-ui-1.12.1/jquery-ui.theme.css"/>">
 <link rel="stylesheet" href="<c:url value="/statics/css/style.css"/>">
-<body
-	style="background-image: url(<c:url value="/statics/image/background/background1.jpg"/>); background-size: cover">
+<body style="background:#e7f6e7">
 	<div class="container" style="margin-top: 30px;">
 		<div class="row">
 			<div style="margin: 20px auto; color: #ffffff">

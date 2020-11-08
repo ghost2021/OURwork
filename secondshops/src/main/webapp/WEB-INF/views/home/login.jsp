@@ -10,8 +10,7 @@
 	href="<c:url value="/statics/bootstrap-3.3.0/css/bootstrap.css"/>">
 <link rel="stylesheet" href="<c:url value="/statics/css/style.css"/>">
 </head>
-<body
-	style="background-image: url(<c:url value="/statics/image/background/loginbackground.jpg"/>); background-size: cover">
+<body style="background:#e7f6e7">
 	<div style="margin: 20px auto">
 		<div style="margin: 100px auto; margin-bottom: 40px" align="center">
 			<h1 style="font-size: 60px">校园二手交易平台</h1>
@@ -21,7 +20,7 @@
 	<div class="container" style="position: relative; margin: 80px auto;">
 		<div class="col-md-6 login-back"
 			style="position: absolute; left: 50%; transform: translateX(-50%);">
-			<form action="/wzh-secondshop/login" method="post">
+			<form action="/secondshop/login" method="post">
 				<input id="preURL" name="preURL" value="${preURL}"
 					style="display: none">
 				<div class="form-group">
@@ -43,8 +42,8 @@
 				<a style="margin-left: 20px; width: 45%" class="btn btn-primary"
 					href="register">注册</a>
 			</form>
-			<a href="/wzh-secondshop/admin/adminLogin">管理员登录</a> <a
-				style="float: right" href="/wzh-secondshop">返回首页</a>
+			<a href="/secondshop/admin/adminLogin">管理员登录</a> <a
+				style="float: right" href="/secondshop">返回首页</a>
 		</div>
 	</div>
 	<script src="<c:url value="/statics/jquery-1.12.4/jquery-1.12.4.js"/>"></script>
