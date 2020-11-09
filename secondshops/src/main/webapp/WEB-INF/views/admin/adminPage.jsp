@@ -27,7 +27,7 @@ a {
 	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 	<div class="container">
 		<div class="navbar-header">
-			<a class="navbar-brand" style="font-size: 25px">校园二手交易平台后台管理</a>
+			<a class="navbar-brand" style="font-size: 25px">校园二手交易平后台管理</a>
 		</div>
 		
 		<div id="navbar" class="navbar-collapse collapse">
