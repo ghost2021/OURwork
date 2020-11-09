@@ -27,7 +27,7 @@ a {
 	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 	<div class="container">
 		<div class="navbar-header">
-			<a class="navbar-brand" style="font-size: 25px">校园二手交易平后台管理</a>
+			<a class="navbar-brand" style="font-size: 25px">交易平后台管理</a>
 		</div>
 		
 		<div id="navbar" class="navbar-collapse collapse">
@@ -59,13 +59,15 @@ a {
 					</p>
 				</div>
 				
+				<!-- 
 				<div id="menu3" onclick="menuBar('menu3')" class="admenu"
 					align="center">
 					<p>
 						<B style="font-size: 20px; color: #5c5c5c; cursor: pointer">订单管理</B>
 					</p>
 				</div>
-				
+				 -->
+				 
 				<div id="menu4" onclick="menuBar('menu4')" class="admenu"
 					align="center">
 					<p>
@@ -119,7 +121,7 @@ a {
 								</div>
 							</div>
 						</div>
-						
+		<!-- 				
 						<div class="col-md-6" style="height: 100%;">
 							<div class="col-md-12" align="center" style="margin-bottom: 5px">
 								<h4>二级分类</h4>
@@ -150,6 +152,7 @@ a {
 								</div>
 							</div>
 						</div>
+						 -->
 					</div>
 				</div>
 			</div>

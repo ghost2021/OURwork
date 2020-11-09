@@ -41,6 +41,37 @@ public class AdminController {
     public String getAdminLogin(){
         return "admin/adminLogin";
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @RequestMapping(value = "/adminPage", method = RequestMethod.GET)
+    public String getAdminPage(ModelMap model,
+                               HttpSession session){
+        User admin = (User) session.getAttribute("admin");
+//        if (admin == null){
+//            return "redirect:/admin/adminLogin";
+//        }
+        List<Good> goodList = goodService.getAllGoodList();
+        for (Good good : goodList) {
+            good.setGoodUser(userService.getUserById(good.getUserId()));
+            good.setGoodSecondType(typeService.getSecondTypeById(good.getSecondTypeId()));
+        }
+        List<User> userList = userService.getAllUser();
+        List<FirstType> firstTypeList = typeService.getAllFirstType();
+        List<Order> orderList = orderService.getOrderList();
+        model.addAttribute("goodList", goodList);
+        model.addAttribute("userList", userList);
+        model.addAttribute("firstTypeList", firstTypeList);
+        model.addAttribute("orderList", orderList);
+        return "admin/adminPage";
+    }
 
 
 }
