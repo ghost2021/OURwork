@@ -27,7 +27,7 @@ a {
 	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 	<div class="container">
 		<div class="navbar-header">
-			<a class="navbar-brand" style="font-size: 25px">交易平后台管理</a>
+			<a class="navbar-brand" style="font-size: 25px">后台管理</a>
 		</div>
 		
 		<div id="navbar" class="navbar-collapse collapse">
@@ -90,7 +90,7 @@ a {
 						style=" height: 100%; padding: 15px">
 						<div class="col-md-6" style="height: 100%;">
 							<div class="col-md-12" align="center" style="margin-bottom: 5px">
-								<h4>一级分类</h4>
+								<h4>分类</h4>
 							</div>
 							
 							<div class="col-md-12 r"
@@ -107,7 +107,7 @@ a {
 								<div id="fir" class="col-md-9 r"
 									style="display: none; padding: 15px; ">
 									<div class="form-group">
-										<label for="addfirst">一级分类名称</label> <input id="addfirst"
+										<label for="addfirst">分类名称</label> <input id="addfirst"
 											class="form-control" type="text">
 									</div>
 									<button onclick="addFirstType()" class="btn btn-success">添加</button>

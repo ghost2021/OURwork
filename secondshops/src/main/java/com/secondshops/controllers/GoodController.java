@@ -45,7 +45,7 @@ public class GoodController {
 		this.collectService = collectService;
 	}
 	
-	
+	//进入首页显示商品
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String getHomeGoods(
 			ModelMap model,

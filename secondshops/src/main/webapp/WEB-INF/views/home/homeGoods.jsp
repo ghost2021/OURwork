@@ -48,7 +48,7 @@
 					<div class="col-md-10">
 						<input id="searchText" name="searchText" type="text"
 							class="form-control" value="${param.searchText}"
-							placeholder="这里可以搜索哦~~">
+							placeholder="搜索">
 					</div>
 
 					<button class="btn btn-success; col-md-2"  style="background: #e7f6e7">搜索</button>
@@ -73,7 +73,7 @@
 					style="padding-left: 0px; padding-right: 0px;" id="type-button">
 					<c:forEach var="firstType" items="${firstTypes}">
 						<div
-							style="height: 50px; width: 100%; background-color: #e7f6e7; margin-top: 15px;"
+							style="height: 50px; width: 100%; background-color: #e7f6e7\; margin-top: 15px;"
 							class="btn-type" align="center;" id="type${firstType.id}"
 							onclick="typeButton(${firstType.id})">
 							<p>
@@ -81,7 +81,7 @@
 							</p>
 						</div>
 
-						<div class="col-md-12 r" id="${firstType.id}"
+					<%-- 	<div class="col-md-12 r" id="${firstType.id}"
 							style="display: none; background-color: #f5f5f5; padding-left: 0px; padding-right: 0px;"
 							align="center">
 							<c:forEach var="secondType" items="${firstType.secondType}">
@@ -91,7 +91,8 @@
 									<p>${secondType.name}</p>
 								</a>
 							</c:forEach>
-						</div>
+						</div> --%>
+						
 					</c:forEach>
 				</div>
 			</div>
@@ -165,7 +166,7 @@
 	<jsp:include page="footer.jsp" />
 
 	<script>
-    function typeButton(firstTypeId) {
+/*     function typeButton(firstTypeId) {
         var firstType ="#" + firstTypeId;
         var firstType1 = "#type" + firstTypeId;
         if (document.getElementById(firstTypeId).style.display === "none") {
@@ -176,7 +177,7 @@
             $(".btn-type").slideDown();
             $(firstType).slideUp();
         }
-    }
+    } */
 	</script>
 	<script src="<c:url value="/statics/jquery-1.12.4/jquery-1.12.4.js"/>"></script>
 	<script src="<c:url value="/statics/bootstrap-3.3.0/js/bootstrap.js"/>"></script>

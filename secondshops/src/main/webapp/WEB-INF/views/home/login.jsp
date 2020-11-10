@@ -20,7 +20,7 @@
 	<div class="container" style="position: relative; margin: 80px auto;">
 		<div class="col-md-6 login-back"
 			style="position: absolute; left: 50%; transform: translateX(-50%);">
-			<form action="/secondshop/login" method="post">
+			<form action="/secondshops/login" method="post">
 				<input id="preURL" name="preURL" value="${preURL}"
 					style="display: none">
 				<div class="form-group">
