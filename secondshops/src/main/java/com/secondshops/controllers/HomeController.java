@@ -64,7 +64,13 @@ public class HomeController {
     }
 
 
-
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    public String logout(@RequestParam(required = false, defaultValue = "false" )String logout, HttpSession session){
+        if (logout.equals("true")){
+            session.removeAttribute("user");
+        }
+        return "redirect:/";
+    }
 
     @RequestMapping(value = "/register", method = RequestMethod.GET)
     public String registerPage(ModelMap model) {
