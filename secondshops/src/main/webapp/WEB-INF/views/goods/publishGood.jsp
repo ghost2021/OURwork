@@ -51,13 +51,15 @@
 							</div>
 						</spring:bind>
 						
-						<spring:bind path="secondTypeId">
+					<%-- 	<spring:bind path="secondTypeId">
 							<div class="form-group">
 								<form:label path="secondTypeId" cssClass="control-label">二级分类</form:label>
 								<form:select id="secondType" cssClass="form-control"
 									path="secondTypeId"></form:select>
 							</div>
-						</spring:bind>
+						</spring:bind> --%>
+						
+					
 						
 						<spring:bind path="prise">
 							<div class="form-group">
@@ -187,43 +189,6 @@
 			</div>
 		</div>
 		
-		<div id="re-bar" class="col-md-3 r"
-			style="background-color: #f9f9f9; padding-bottom: 15px;">
-			<div class="col-md-12 r"
-				style="text-align: center; margin-top: 10px; background-color: #e4e4e4; padding: 5px">
-				<B style="font-size: 20px; color: #a2a2a2">最新发布的物品</B>
-			</div>
-			
-			<div class="col-md-12"
-				style="margin-top: 20px; padding-left: 0px; padding-right: 0px">
-				<c:choose>
-					<c:when test="${goods.size() == 0}">
-						<div align="center">
-							<h4>抱歉，暂无此类推荐！</h4>
-						</div>
-					</c:when>
-				</c:choose>
-				
-				<c:forEach var="Good" items="${goods}">
-					<a target="_blank"
-						href="/secondshops/goods/goodInfo?goodId=${Good.id}">
-						<div class="col-md-12 b"
-							style="padding-left: 0px; padding-right: 0px">
-							<div class="col-md-6"
-								style="padding-top: 15px; padding-bottom: 15px">
-								<img src="<c:url value="${Good.photoUrl}"/>" height="100px"
-									; width="100px">
-							</div>
-							<div class="col-md-6"
-								style="padding-top: 15px; padding-bottom: 15px; height: 130px">
-								<p style="height: 75px">${Good.name}</p>
-								<p align="right" style="color: red">￥${Good.prise}</p>
-							</div>
-						</div>
-					</a>
-				</c:forEach>
-			</div>
-		</div>
 	</div>
 
 	<jsp:include page="../home/footer.jsp" />

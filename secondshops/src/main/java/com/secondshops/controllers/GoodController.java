@@ -87,6 +87,24 @@ public class GoodController {
 		model.addAttribute("firstTypes", firstTypes);
 		return "goods/publishGood";
 	}
+	//获取商品id
+	@RequestMapping(value = "/goods/publishGood", method = RequestMethod.POST)
+	public String getGoodId(ModelMap model, HttpSession session,
+			@Valid Good good) {
+		List<FirstType> firstTypes = typeService.getAllFirstType();
+		User user = (User) session.getAttribute("user");
+		List<Good> goods = goodService.getAllGoods(0, 5);
+		good.setUserId(user.getId());
+		good.setPhotoUrl("/statics/image/goods/default/nophoto.png");
+		if (goodService.insertGood(good) != 1) {
+			System.out.println("插入物品失败！");
+		}
+		model.addAttribute("goods", goods);
+		model.addAttribute("good", good);
+		model.addAttribute("firstTypes", firstTypes);
+		return "goods/publishGood";
+	}
+	
 
 	
 
