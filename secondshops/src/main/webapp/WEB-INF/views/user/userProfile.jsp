@@ -72,7 +72,7 @@
 					
 					<div class="col-md-3">
 						<a
-							href="/secondshop/user/userEdit?userId=${sessionScope.user.getId()}">修改个人资料</a>
+							href="/secondshops/user/userEdit?userId=${sessionScope.user.getId()}">修改个人资料</a>
 					</div>
 				</div>
 			</div>
@@ -123,7 +123,7 @@
 										<c:forEach var="collect" items="${collects}">
 											<tr style="color: #666666">
 												<td style="width: 102px"><a target="_blank"
-													href="/secondshop/goods/goodInfo?goodId=${collect.good.id}">${collect.good.id}</a></td>
+													href="/secondshops/goods/goodInfo?goodId=${collect.good.id}">${collect.good.id}</a></td>
 												<td style="width: 200px">${collect.good.name}</td>
 												<td style="width: 200px">${collect.good.uploadDate}</td>
 												<td style="width: 100px">${collect.good.statusId == 0 ? "已下架":"在售"}</td>
@@ -183,7 +183,7 @@
 										<c:forEach var="good" items="${goods}">
 											<tr style="color: #666666">
 												<td style="width: 102px"><a target="_blank"
-													href="/secondshop/goods/goodInfo?goodId=${good.id}">${good.id}</a></td>
+													href="/secondshops/goods/goodInfo?goodId=${good.id}">${good.id}</a></td>
 												<td style="width: 227px">${good.name}</td>
 												<td style="width: 260px">${good.uploadDate}</td>
 												<td>${good.statusId == 0 ? "已下架":"在售"}</td>
@@ -244,7 +244,7 @@
 										<c:forEach var="order" items="${orders}">
 											<tr style="color: #666666">
 												<td style="width: 90px"><a target="_blank"
-													href="/secondshop/user/orderInfo?orderId=${order.id}">${order.id}</a></td>
+													href="/secondshops/user/orderInfo?orderId=${order.id}">${order.id}</a></td>
 												<td style="width: 100px">${order.seller}</td>
 												<td style="width: 140px">${order.goodName}</td>
 												<td style="width: 70px">${order.money}</td>
@@ -291,7 +291,7 @@
 						<c:otherwise>
 							<c:forEach var="review" items="${reviews}">
 								<a target="_blank"
-									href="/secondshop/user/review?goodId=${review.goodId}&reviewId=${review.id}">
+									href="/secondshops/user/review?goodId=${review.goodId}&reviewId=${review.id}">
 									<div class="col-md-12 rev"
 										style="padding-left: 0px; padding-right: 0px; margin-bottom: 5px;">
 										<div class="col-md-11">
@@ -331,7 +331,7 @@
 						<c:otherwise>
 							<c:forEach var="reply" items="${replies}">
 								<a target="_blank"
-									href="/secondshop/user/reply?reviewId=${reply.reviewId}&replyId=${reply.id}">
+									href="/secondshops/user/reply?reviewId=${reply.reviewId}&replyId=${reply.id}">
 									<div class="col-md-12 rev"
 										style="padding-left: 0px; padding-right: 0px; margin-bottom: 5px;">
 										<div class="col-md-11">
@@ -376,7 +376,7 @@
 							<c:otherwise>
 								<c:forEach var="sellGood" items="${sellGoods}">
 									<a
-										href="/secondshop/user/sellerInfo?orderId=${sellGood.id}">
+										href="/secondshops/user/sellerInfo?orderId=${sellGood.id}">
 										<div class="col-md-12 rev"
 											style="padding: 10px; margin-bottom: 5px;">
 											<div class="col-md-11" style="padding: 0px;">
@@ -402,7 +402,7 @@
 
 	<script>
     function deleteCollect(collectId) {
-        $.get("/secondshop/collect/delete/"+collectId+"&"+${sessionScope.user.id}, function (data) {
+        $.get("/secondshops/collect/delete/"+collectId+"&"+${sessionScope.user.id}, function (data) {
             if (data === false){
                 alert("未知原因，删除失败！");
             } else {
@@ -414,7 +414,7 @@
                     var collectGoodUploadDate = type.good.uploadDate;
                     var collectGoodStatus = type.good.statusId === 0 ? "已下架":"在售";
                     var collect = "<tr style=\"color: #666666\">"+
-                        "<td style=\"width: 102px\"><a target='_blank' href='/secondshop/goods/goodInfo?goodId="+collectGoodId+"'>"+collectGoodId+"</a></td>"+
+                        "<td style=\"width: 102px\"><a target='_blank' href='/secondshops/goods/goodInfo?goodId="+collectGoodId+"'>"+collectGoodId+"</a></td>"+
                     "<td style=\"width: 200px\">"+collectGoodName+"</td>"+
                     "<td style=\"width: 200px\">"+collectGoodUploadDate+"</td>"+
                     "<td style=\"width: 100px\">"+collectGoodStatus+"</td>"+
