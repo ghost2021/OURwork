@@ -37,11 +37,47 @@ public class AdminController {
         this.typeService = typeService;
         this.orderService = orderService;
     }
+    //映射管理员登陆
     @RequestMapping(value = "/adminLogin", method = RequestMethod.GET)
     public String getAdminLogin(){
         return "admin/adminLogin";
     }
-    
+    //管理员登陆
+    @RequestMapping(value = "/adminLogin", method = RequestMethod.POST)
+    public String postAdminLogin(ModelMap model,
+                                 @RequestParam(value = "email", required = false) String email,
+                                 @RequestParam(value = "password", required = false) String password,
+                                 HttpSession session) {
+        User admin = userService.getUserByEmail(email);
+        String message;
+        if (admin != null){
+            String mdsPass = DigestUtils.md5DigestAsHex((password + admin.getCode()).getBytes());
+//            if (!mdsPass .equals(admin.getPassword())){
+//                message = "用户密码错误！";
+//            }
+            if (!password .equals(admin.getPassword())){
+                message = "用户密码错误！";
+            } else if (admin.getRoleId() != 101){
+                message = "用户没有权限访问！";
+            } else {
+                session.setAttribute("admin",admin);
+                return "redirect:/admin/adminPage";
+            }
+        } else {
+            message = "用户不存在！";
+        }
+        model.addAttribute("message", message);
+        return "admin/adminLogin";
+    }
+    //管理员注销
+    @RequestMapping(value = "/adminLogout", method = RequestMethod.GET)
+    public String adminLogout(@RequestParam(required = false, defaultValue = "false" )String adminLogout, HttpSession session){
+        if (adminLogout.equals("true")){
+            session.removeAttribute("admin");
+        }
+//        adminLogout = "false";
+        return "redirect:/";
+    }
     
     
     

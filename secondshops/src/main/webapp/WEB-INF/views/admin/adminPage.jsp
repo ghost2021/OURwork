@@ -34,7 +34,7 @@ a {
 			<ul class="nav navbar-nav navbar-right">
 				<li><a>${sessionScope.admin.getName()}</a></li>
 				<li><a
-					href="/secondshop/admin/adminLogout?adminLogout=true">退出</a></li>
+					href="/secondshops/admin/adminLogout?adminLogout=true">退出</a></li>
 			</ul>
 		</div>
 	</div>
@@ -374,7 +374,7 @@ a {
         };
         $.ajax({
             type:"POST",
-            url:"/secondshop/type/firstType/create",
+            url:"/secondshops/type/firstType/create",
             contentType: "application/json", //必须这样写
             dataType:"json",
             data:JSON.stringify(newFirstType),//要提交是json字符串
@@ -407,7 +407,7 @@ a {
         };
         $.ajax({
             type:"POST",
-            url:"/secondshop/type/secondType/create",
+            url:"/secondshops/type/secondType/create",
             contentType: "application/json", //必须这样写
             dataType:"json",
             data:JSON.stringify(newSecondType),//要提交是json字符串
@@ -433,7 +433,7 @@ a {
     }
 
     function deleteFirst(first_id) {
-        $.getJSON("/secondshop/type/firstType/delete/"+first_id, function (data) {
+        $.getJSON("/secondshops/type/firstType/delete/"+first_id, function (data) {
             if (data === false){
                 alert("删除失败，请确认该分类下是否还有二级分类！");
             } else {
@@ -451,7 +451,7 @@ a {
     }
 
     function deleteSecond(second_id) {
-        $.getJSON("/secondshop/type/secondType/delete/"+second_id, function (data) {
+        $.getJSON("/secondshops/type/secondType/delete/"+second_id, function (data) {
             if (data === false){
                 alert("删除失败，请确认该分类下是否还有物品！");
             } else if (data === "isNull") {
@@ -478,7 +478,7 @@ a {
         $(firstId).removeClass("adUlLi").addClass("adUlLi-a");
         document.getElementById("secondType-ba").innerHTML = "";
         document.getElementById("addSecondBtn").style.display = "";
-        $.getJSON("/secondshop/type/secondType/"+first_id, function (data) {
+        $.getJSON("/secondshops/type/secondType/"+first_id, function (data) {
             if (data === false){
                 alert("好像出了问题，请重试！")
             } else if (data === "isNull") {
@@ -544,7 +544,7 @@ a {
     }
 
     function setUserStatus(statusId, userId) {
-        $.getJSON("/secondshop/admin/user/update/status/"+statusId+"&"+userId, function (data) {
+        $.getJSON("/secondshops/admin/user/update/status/"+statusId+"&"+userId, function (data) {
             if (data === false){
                 alert("用户状态修改失败！");
             } else {
@@ -576,7 +576,7 @@ a {
     }
     
     function delUser(userId) {
-        $.getJSON("/secondshop/admin/user/delete/"+userId, function (data) {
+        $.getJSON("/secondshops/admin/user/delete/"+userId, function (data) {
             if (data === false){
                 alert("用户删除失败！");
             } else {
@@ -627,9 +627,9 @@ a {
     }
 
     function delOrder(orderId) {
-        $.getJSON("/secondshop/user/order/delete/"+orderId, function (data) {
+        $.getJSON("/secondshops/user/order/delete/"+orderId, function (data) {
             if (data){
-                $.getJSON("/secondshop/user/order/allOrder", function (data) {
+                $.getJSON("/secondshops/user/order/allOrder", function (data) {
                     document.getElementById("orderTable").innerHTML = "";
                     $.each(data, function (i, type) {
                         var orderId = type.id;
@@ -693,9 +693,9 @@ a {
     }
 
     function delGood(goodId) {
-        $.getJSON("/secondshop/goods/userGoodEdit/delete/"+goodId, function (data) {
+        $.getJSON("/secondshops/goods/userGoodEdit/delete/"+goodId, function (data) {
             if (data){
-                $.getJSON("/secondshop/admin/goods/allGoods", function (data) {
+                $.getJSON("/secondshops/admin/goods/allGoods", function (data) {
                     document.getElementById("goodTable").innerHTML = "";
                     $.each(data, function (i, type) {
                         var goodId = type.id;
@@ -725,9 +725,9 @@ a {
     }
 
     function setStatus(goodId) {
-        $.getJSON("/secondshop/goods/userGoodEdit/updateGoodStatus/"+goodId, function (data) {
+        $.getJSON("/secondshops/goods/userGoodEdit/updateGoodStatus/"+goodId, function (data) {
             if (data){
-                $.getJSON("/secondshop/admin/goods/allGoods", function (data) {
+                $.getJSON("/secondshops/admin/goods/allGoods", function (data) {
                     document.getElementById("goodTable").innerHTML = "";
                     $.each(data, function (i, type) {
                         var goodId = type.id;
