@@ -42,8 +42,8 @@
 				<a style="margin-left: 20px; width: 45%" class="btn btn-primary"
 					href="register">注册</a>
 			</form>
-			<a href="/secondshop/admin/adminLogin">管理员登录</a> <a
-				style="float: right" href="/secondshop">返回首页</a>
+			<a href="/secondshops/admin/adminLogin">管理员登录</a> <a
+				style="float: right" href="/secondshops">返回首页</a>
 		</div>
 	</div>
 	<script src="<c:url value="/statics/jquery-1.12.4/jquery-1.12.4.js"/>"></script>
