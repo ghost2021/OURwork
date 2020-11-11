@@ -72,4 +72,22 @@ public class GoodController {
 	}
 	
 
+	//映射到发布界面
+	@RequestMapping(value = "/goods/publishGood", method = RequestMethod.GET)
+	public String getPublishGood(ModelMap model, HttpSession session) {
+		User user = (User) session.getAttribute("user");
+		if (user == null) {
+			return "redirect:/";
+		}
+		Good good = new Good();
+		List<FirstType> firstTypes = typeService.getAllFirstType();
+		List<Good> goods = goodService.getAllGoods(0, 5);
+		model.addAttribute("goods", goods);
+		model.addAttribute("good", good);
+		model.addAttribute("firstTypes", firstTypes);
+		return "goods/publishGood";
+	}
+
+	
+
 }

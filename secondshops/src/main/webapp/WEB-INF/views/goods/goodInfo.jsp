@@ -124,7 +124,7 @@
 									</div>
 									<a
 										style="display: ${sessionScope.user.id == goodInfo.goodUser.id ? '':'none'}"
-										href="/secondshop/goods/userGoodEdit?goodId=${goodInfo.id}">
+										href="/secondshops/goods/userGoodEdit?goodId=${goodInfo.id}">
 										<div class="col-md-5 r-b">
 											<B style="font-size: 20px; color: #e2e2e2">编辑</B>
 										</div>
@@ -142,7 +142,7 @@
 						<div class="col-md-12" style="margin-top: 50px" align="right">
 							<p>
 								<a
-									href="/secondshop/goods/userGoods?userId=${goodInfo.userId}">查看卖家其他物品</a>
+									href="/secondshops/goods/userGoods?userId=${goodInfo.userId}">查看卖家其他物品</a>
 							</p>
 						</div>
 					</div>
@@ -204,7 +204,7 @@
 								
 								<div id="${review.id}" class="col-md-12"
 									style="margin-bottom: 15px; display: none">
-									<form action="/secondshop/goods/goodInfo" method="post">
+									<form action="/secondshops/goods/goodInfo" method="post">
 										<div class="col-sm-10">
 											<input id="${review.id}goodId" name="goodId" type="text"
 												value="${goodInfo.id}" style="display: none"> <input
@@ -233,7 +233,7 @@
 				
 				<c:choose>
 					<c:when test="${sessionScope.user != null}">
-						<form action="/secondshop/goods/goodInfo" method="post">
+						<form action="/secondshops/goods/goodInfo" method="post">
 							<div class="col-md-12" style="margin-bottom: 15px">
 								<div class="col-sm-11">
 									<input id="goodId" name="goodId" type="text"
@@ -331,7 +331,7 @@
         };
         $.ajax({
             type:"POST",
-            url:"/secondshop/collect/insert",
+            url:"/secondshops/collect/insert",
             contentType: "application/json", //必须这样写
             dataType:"json",
             data:JSON.stringify(collect),//要提交是json字符串
@@ -340,7 +340,7 @@
                     alert("由于未知原因，收藏失败！");
                 } else {
                     alert("收藏成功！");
-                    $(window).attr('location','/secondshop/goods/goodInfo?goodId=${goodInfo.id}');
+                    $(window).attr('location','/secondshops/goods/goodInfo?goodId=${goodInfo.id}');
                 }
             }
         })
@@ -398,7 +398,7 @@
     function getBuy() {
         if (${sessionScope.user == null}) {
             alert("请先登录！");
-            $(window).attr('location','/secondshop/login');
+            $(window).attr('location','/secondshops/login');
         } else {
             alert("我们正在为您创建订单！");
             var order = {
@@ -413,7 +413,7 @@
             console.log(order);
             $.ajax({
                 type:"POST",
-                url:"/secondshop/user/order/create",
+                url:"/secondshops/user/order/create",
                 contentType: "application/json", //必须这样写
                 dataType:"json",
                 data:JSON.stringify(order),//要提交是json字符串
@@ -422,7 +422,7 @@
                         alert("由于未知原因，订单创建失败！");
                     } else {
                         alert("订单创建成功，请及时与卖家联系，线下验货交易！");
-                        $(window).attr('location','/secondshop/user/orderInfo?orderId=' + data);
+                        $(window).attr('location','/secondshops/user/orderInfo?orderId=' + data);
                     }
                 }
             });
