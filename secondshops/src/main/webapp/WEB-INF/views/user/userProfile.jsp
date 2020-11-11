@@ -19,17 +19,16 @@
 	<jsp:include page="../home/header.jsp" />
 
 	<div class="container"
-		style="position: relative; transform: translate(0, 0)">
-		<div class="col-md-9" style="float: left">
-			<div class="col-md-12 r1"
-				style="background-color: #e4e4e4; height: 40px">
-				<div class="col-md-6" style="margin-top: 5px">
+		>
+		<div >
+			<div >
+				<div  style="margin-top: 5px">
 					<B style="color: #c4c4c4; font-size: 20px">我的信息</B>
 				</div>
 			</div>
 			
 			<div class="col-md-12 r2"
-				style="background-color: #f9f9f9; padding-top: 15px; padding-bottom: 15px; margin-bottom: 20px">
+				style=" padding-top: 15px; padding-bottom: 15px; margin-bottom: 20px">
 				<div class="col-md-2" style="padding-left: 0px; padding-right: 0px;">
 					<img src="<c:url value="${sessionScope.user.getPhotoUrl()}"/>"
 						width="128px" height="128px">

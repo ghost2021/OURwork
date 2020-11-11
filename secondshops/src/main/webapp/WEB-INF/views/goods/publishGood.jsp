@@ -22,7 +22,7 @@
 
 	<div class="container"
 		style="position: relative; transform: translate(0, 0)">
-		<div class="col-md-9">
+		<div >
 			<div class="col-md-12 r1"
 				style="background-color: #e4e4e4; height: 40px;">
 				<div style="margin-top: 5px">
@@ -30,8 +30,7 @@
 				</div>
 			</div>
 			
-			<div class="col-md-12 r2"
-				style="background-color: #f9f9f9; padding-top: 15px; padding-bottom: 15px;">
+			<div >
 				<div class="col-md-12">
 					<form:form method="post" commandName="good" items="${good}"
 						id="register">
