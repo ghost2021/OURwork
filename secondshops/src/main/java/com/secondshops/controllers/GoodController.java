@@ -104,6 +104,53 @@ public class GoodController {
 		model.addAttribute("firstTypes", firstTypes);
 		return "goods/publishGood";
 	}
+	//上传商品图片
+	@RequestMapping(value = "/goods/publishGood/uploadImage", method = RequestMethod.POST)
+	public String uploadImage(
+			HttpSession session,
+			@RequestParam(value = "goodId", required = false) Integer goodId,
+			@RequestParam(value = "mainFile", required = false) MultipartFile mainFile,
+			@RequestParam(value = "file", required = false) MultipartFile[] file)
+			throws IOException {
+		User user = (User) session.getAttribute("user");
+		FileCheck fileCheck = new FileCheck();
+		RandomString randomString = new RandomString();
+		String filePath = "/statics/image/goods/" + user.getId() + "/" + goodId;
+		String pathRoot = fileCheck.checkGoodFolderExist(filePath);
+		String name;
+		if (!mainFile.isEmpty()) {
+			String fileName = goodId + randomString.getRandomString(10);
+			String contentType = mainFile.getContentType();
+			String imageName = contentType
+					.substring(contentType.indexOf("/") + 1);
+			name = fileName + "." + imageName;
+			mainFile.transferTo(new File(pathRoot + name));
+			String photoUrl = filePath + "/" + name;
+			goodService.updateGoodPhotoUrl(photoUrl, goodId);
+		}
+		for (MultipartFile mf : file) {
+			if (!mf.isEmpty()) {
+				// 生成uuid作为文件名称
+				String fileName = goodId + randomString.getRandomString(10);
+				// 获得文件类型（可以判断如果不是图片，禁止上传）
+				String contentType = mf.getContentType();
+				// 获得文件后缀名称
+				String imageName = contentType.substring(contentType
+						.indexOf("/") + 1);
+				name = fileName + "." + imageName;
+				System.out.println("name:" + name);
+				mf.transferTo(new File(pathRoot + name));
+				Image image = new Image();
+				image.setGoodId(goodId);
+				image.setName(name);
+				image.setUrl(filePath + "/" + name);
+				imageService.insertImage(image);
+			} else {
+				System.out.println("文件为空！");
+			}
+		}
+		return "redirect:/";
+	}
 	
 
 	
