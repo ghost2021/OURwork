@@ -80,13 +80,7 @@ public class AdminController {
     }
     
     
-    
-    
-    
-    
-    
-    
-    
+    //进入管理员界面
     @RequestMapping(value = "/adminPage", method = RequestMethod.GET)
     public String getAdminPage(ModelMap model,
                                HttpSession session){
@@ -107,6 +101,16 @@ public class AdminController {
         model.addAttribute("firstTypeList", firstTypeList);
         model.addAttribute("orderList", orderList);
         return "admin/adminPage";
+    }
+    //删除用户
+    @RequestMapping(value = "/user/delete/{userId}", method = RequestMethod.GET)
+    public ResponseEntity deleteUser(@PathVariable Integer userId){
+        Boolean success = userService.deleteUser(userId);
+        if (success){
+            List<User> userList = userService.getAllUser();
+            return ResponseEntity.ok(userList);
+        }
+        return ResponseEntity.ok(success);
     }
 
 

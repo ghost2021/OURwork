@@ -45,17 +45,17 @@ a {
 		<div class="col-md-2"
 			style="height: 92%; padding: 0px;">
 			<div style="float: right; width: 100%; background: white">
-				<div id="menu1" onclick="menuBar('menu1')" class="admenu-b"
+				<div  onclick="menuBar('menu1')" 
 					align="center">
 					<p>
-						<B style="font-size: 20px; color: #5c5c5c; cursor: pointer">物品分类管理</B>
+						<B style="font-size: 20px;  cursor: pointer">物品分类管理</B>
 					</p>
 				</div>
 				
-				<div id="menu2" onclick="menuBar('menu2')" class="admenu"
+				<div id="menu2" onclick="menuBar('menu2')" 
 					align="center">
 					<p>
-						<B style="font-size: 20px; color: #5c5c5c; cursor: pointer">物品管理</B>
+						<B style="font-size: 20px;  cursor: pointer">物品管理</B>
 					</p>
 				</div>
 				
@@ -71,7 +71,7 @@ a {
 				<div id="menu4" onclick="menuBar('menu4')" class="admenu"
 					align="center">
 					<p>
-						<B style="font-size: 20px; color: #5c5c5c; cursor: pointer">用户管理</B>
+						<B style="font-size: 20px;  cursor: pointer">用户管理</B>
 					</p>
 				</div>
 			</div>
@@ -320,7 +320,7 @@ a {
         $(".admenu-b").removeClass("admenu-b").addClass("admenu");
         $(menubar).removeClass("admenu").addClass("admenu-b");
         $("#menu-context > div").slideUp();
-        $(menu_context).slideDown();
+        $(menu_context).slideDown();//显示不同div
     }
 	</script>
 
