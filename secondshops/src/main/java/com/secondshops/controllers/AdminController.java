@@ -112,6 +112,17 @@ public class AdminController {
         }
         return ResponseEntity.ok(success);
     }
+    //禁用用户
+    @RequestMapping(value = "/user/update/status/{statusId}&{userId}", method = RequestMethod.GET)
+    public ResponseEntity updateUserStatus(@PathVariable Integer statusId,
+                                            @PathVariable Integer userId){
+        Boolean success = userService.updateUserStatus(statusId, userId);
+        if (success){
+            List<User> userList = userService.getAllUser();
+            return ResponseEntity.ok(userList);
+        }
+        return ResponseEntity.ok(success);
+    }
 
 
 }
