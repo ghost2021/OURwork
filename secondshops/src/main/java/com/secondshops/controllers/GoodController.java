@@ -151,6 +151,44 @@ public class GoodController {
 		}
 		return "redirect:/";
 	}
+	//进入商品详情页
+	@RequestMapping(value = "/goods/goodInfo", method = RequestMethod.GET)
+	public String getGoodInfo(ModelMap model, HttpSession httpSession,
+			@RequestParam(required = false) Integer goodId) {
+		Good goodInfo = goodService.getGoodById(goodId);
+		if (goodInfo == null) {
+			return "goods/error";
+		}
+		Integer collect = 1;
+		User user = (User) httpSession.getAttribute("user");
+		if (user == null) {
+			collect = 0;
+		} else {
+			if (collectService.getCollect(goodId, user.getId())) {
+				collect = 2;
+			}
+		}
+		List<Image> images = imageService.getImageByGoodId(goodId);
+		User goodUser = userService.getUserById(goodInfo.getUserId());
+		goodInfo.setGoodUser(userService.getUserById(goodInfo.getUserId()));
+		goodInfo.setGoodSecondType(typeService.getSecondTypeById(goodInfo
+				.getSecondTypeId()));
+		List<Review> reviews = reviewService.gerReviewByGoodId(goodId);
+		for (Review review : reviews) {
+			review.setReplys(reviewService.gerReplyByReviewId(review.getId()));
+		}
+		List<Good> goods = goodService.getRECGoods(goodInfo.getSecondTypeId(),
+				goodInfo.getId());
+		model.addAttribute("message", message);
+		model.addAttribute("reviews", reviews);
+		model.addAttribute("goodInfo", goodInfo);
+		model.addAttribute("images", images);
+		model.addAttribute("goodUser", goodUser);
+		model.addAttribute("goods", goods);
+		model.addAttribute("collect", collect);
+		message = "";
+		return "goods/goodInfo";
+	}
 	
 
 	

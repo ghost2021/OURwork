@@ -122,13 +122,13 @@
 										style="display: ${sessionScope.user.id == goodInfo.goodUser.id ? 'none':''}">
 										<B style="font-size: 20px; color: #e2e2e2">购买</B>
 									</div>
-									<a
+									<%-- <a
 										style="display: ${sessionScope.user.id == goodInfo.goodUser.id ? '':'none'}"
 										href="/secondshops/goods/userGoodEdit?goodId=${goodInfo.id}">
 										<div class="col-md-5 r-b">
 											<B style="font-size: 20px; color: #e2e2e2">编辑</B>
 										</div>
-									</a>
+									</a> --%>
 								</c:when>
 								
 								<c:otherwise>
@@ -139,12 +139,13 @@
 							</c:choose>
 						</div>
 						
-						<div class="col-md-12" style="margin-top: 50px" align="right">
+						<%-- <div class="col-md-12" style="margin-top: 50px" align="right">
 							<p>
 								<a
-									href="/secondshops/goods/userGoods?userId=${goodInfo.userId}">查看卖家其他物品</a>
+									href="/secondshops/goods/userGoods?userId=${goodInfo.userId}">查看卖家其他物品
+								</a>
 							</p>
-						</div>
+						</div> --%>
 					</div>
 				</div>
 			</div>
@@ -162,144 +163,6 @@
 					<p style="color: #b0b0b0;">&emsp;&emsp;${goodInfo.describe}</p>
 				</div>
 			</div>
-
-			<div class="col-md-12 r1"
-				style="background-color: #e4e4e4; height: 40px; margin-top: 20px;">
-				<div class="col-md-6" style="margin-top: 5px">
-					<B style="color: #c4c4c4; font-size: 20px">物品留言</B>
-				</div>
-			</div>
-			
-			<div class="col-md-12 r2"
-				style="padding-top: 15px; background-color: #f9f9f9;">
-
-				<c:choose>
-					<c:when test="${reviews.size() == 0}">
-						<div class="col-md-12 r"
-							style="background-color: #ffffff; margin-top: 15px; margin-bottom: 15px">
-							<p></p>
-							<p style="color: #c4c4c4; font-size: 20px" align="center">留言板为空，赶快发表你的留言！</p>
-						</div>
-					</c:when>
-					
-					<c:otherwise>
-						<c:forEach var="review" items="${reviews}">
-							<div class="col-md-12 r"
-								style="background-color: #ffffff; margin-bottom: 15px">
-								<p></p>
-								<P style="color: #c4c4c4">时间：${review.uploadDate}</P>
-								<p onclick="replyFun(${review.id},'${review.fromUser}')">
-									<B style="color: #2aabd2">${review.fromUser}</B>&nbsp;评论:&nbsp;${review.text}
-								</p>
-								
-								<div class="col-md-10" style="margin-left: 50px">
-									<c:forEach var="reply" items="${review.replys}">
-										<P style="color: #c4c4c4">时间：${reply.uploadDate}</P>
-										<p onclick="replyFun(${review.id},'${reply.fromUser}')">
-											<B style="color: #2aabd2">${reply.fromUser}</B>&nbsp;回复&nbsp;<B
-												style="color: #2aabd2">${reply.toUser}</B>:&nbsp;${reply.text}
-										</p>
-									</c:forEach>
-								</div>
-								
-								<div id="${review.id}" class="col-md-12"
-									style="margin-bottom: 15px; display: none">
-									<form action="/secondshops/goods/goodInfo" method="post">
-										<div class="col-sm-10">
-											<input id="${review.id}goodId" name="goodId" type="text"
-												value="${goodInfo.id}" style="display: none"> <input
-												id="${review.id}reviewId" name="reviewId" type="text"
-												value="${review.id}" style="display: none"> <input
-												id="replyFromUser" name="fromUser" type="text"
-												value="${sessionScope.user.name}" style="display: none">
-											<input id="replyFromUserId" name="fromUserId" type="text"
-												value="${sessionScope.user.id}" style="display: none">
-											<input id="${review.id}replyToUser" name="toUser" type="text"
-												value="" style="display: none"> <input
-												id="${review.id}replyToUserId" name="toUserId" type="text"
-												value="${review.fromUserId}" style="display: none">
-											<input id="${review.id}replyText" name="replyText"
-												type="text" class="form-control" placeholder="">
-										</div>
-										<button class="btn btn-success; col-sm-1" type="submit">回复</button>
-										<p class="btn btn-success; col-sm-1"
-											onclick="closeReplyDiv(${review.id})">X</p>
-									</form>
-								</div>
-							</div>
-						</c:forEach>
-					</c:otherwise>
-				</c:choose>
-				
-				<c:choose>
-					<c:when test="${sessionScope.user != null}">
-						<form action="/secondshops/goods/goodInfo" method="post">
-							<div class="col-md-12" style="margin-bottom: 15px">
-								<div class="col-sm-11">
-									<input id="goodId" name="goodId" type="text"
-										value="${goodInfo.id}" style="display: none"> <input
-										id="fromUser" name="fromUser" type="text"
-										value="${sessionScope.user.name}" style="display: none">
-									<input id="fromUserId" name="fromUserId" type="text"
-										value="${sessionScope.user.id}" style="display: none">
-									<input id="toUserId" name="toUserId" type="text"
-										value="${goodInfo.userId}" style="display: none"> <input
-										id="reviewText" name="reviewText" type="text"
-										class="form-control" placeholder="留言">
-								</div>
-								
-								<button class="btn btn-success; col-sm-1" type="submit">发表</button>
-							</div>
-						</form>
-					</c:when>
-					
-					<c:otherwise>
-						<div class="col-md-12" style="margin-bottom: 15px">
-							<p></p>
-							<p style="color: #595959; font-size: 20px" align="center">登陆后才能发表留言！</p>
-						</div>
-					</c:otherwise>
-				</c:choose>
-			</div>
-		</div>
-		
-		<div class="col-md-3 r"
-			style="background-color: #f9f9f9; padding-bottom: 15px;">
-			<div class="col-md-12 r"
-				style="text-align: center; margin-top: 10px; background-color: #e4e4e4; padding: 5px">
-				<B style="font-size: 20px; color: #a2a2a2">相关推荐</B>
-			</div>
-			
-			<div class="col-md-12"
-				style="margin-top: 20px; padding-left: 0px; padding-right: 0px">
-				<c:choose>
-					<c:when test="${goods.size() == 0}">
-						<div align="center">
-							<h4>抱歉，暂无此类推荐！</h4>
-						</div>
-					</c:when>
-				</c:choose>
-				
-				<c:forEach var="good" items="${goods}">
-					<a target="_blank" href="goodInfo?goodId=${good.id}">
-						<div class="col-md-12 b"
-							style="padding-left: 0px; padding-right: 0px">
-							<div class="col-md-6"
-								style="padding-top: 15px; padding-bottom: 15px">
-								<img src="<c:url value="${good.photoUrl}"/>" height="100px"
-									; width="100px">
-							</div>
-							
-							<div class="col-md-6"
-								style="padding-top: 15px; padding-bottom: 15px; height: 130px">
-								<p style="height: 75px">${good.name}</p>
-								<p align="right" style="color: red">￥${good.prise}</p>
-							</div>
-						</div>
-					</a>
-				</c:forEach>
-			</div>
-		</div>
 	</div>
 
 	<jsp:include page="../home/footer.jsp" />
