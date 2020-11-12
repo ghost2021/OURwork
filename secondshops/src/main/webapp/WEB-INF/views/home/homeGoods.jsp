@@ -74,7 +74,7 @@
 					<c:forEach var="firstType" items="${firstTypes}">
 					
 						<div
-							style="height: 50px; width: 100%; background-color: #e7f6e7; margin-top: 15px;"
+							style="height: 50px; width: 100%;  margin-top: 15px;"
 							class="btn-type" align="center;" id="type${firstType.id}"
 							onclick="typeButton(${firstType.id})">
 							<a class="col-md-12 r-type" href="?firstTypeId=${firstType.id}">
