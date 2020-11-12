@@ -196,6 +196,13 @@ public class GoodController {
 		success = goodService.deleteGood(goodId) > 0;
 		return ResponseEntity.ok(success);
 	}
+	//后台下架商品
+	@RequestMapping(value = "/goods/userGoodEdit/updateGoodStatus/{goodId}", method = RequestMethod.GET)
+	public ResponseEntity updateGoodStatus(@PathVariable Integer goodId) {
+		Boolean success;
+		success = goodService.updateGoodStatusId(0, goodId) > 0;
+		return ResponseEntity.ok(success);
+	}
 	
 	
 	
