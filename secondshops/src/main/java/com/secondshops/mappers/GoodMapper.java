@@ -32,8 +32,13 @@ public interface GoodMapper {
 	@Select("Select count(*) from good_table WHERE name like #{0} and status_id = 1;")
 	int getGoodsBySearchCount(String searchText);
 
-	@Select("Select * from good_table WHERE second_type_id = #{0} and status_id = 1 ORDER BY upload_date DESC LIMIT #{1}, #{2};")
-	List<Good> getGoodsByType(Integer secondTypeId, int offset, int limit);
+	/*
+	 * @Select("Select * from good_table WHERE second_type_id = #{0} and status_id = 1 ORDER BY upload_date DESC LIMIT #{1}, #{2};"
+	 * ) List<Good> getGoodsByType(Integer secondTypeId, int offset, int limit);
+	 */
+	//根据分类查询
+	@Select("Select * from good_table WHERE first_type_id = #{0} and status_id = 1 ORDER BY upload_date DESC LIMIT #{1}, #{2};")
+	List<Good> getGoodsByType(Integer firstTypeId, int offset, int limit);
 
 	@Select("Select count(*) from good_table WHERE second_type_id = #{0} and status_id = 1;")
 	int getGoodsByTypeCount(Integer secondTypeId);
