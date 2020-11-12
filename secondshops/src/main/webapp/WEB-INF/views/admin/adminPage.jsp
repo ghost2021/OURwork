@@ -121,7 +121,7 @@ a {
 								</div>
 							</div>
 						</div>
-						
+		<!-- 				
 						<div class="col-md-6" style="height: 100%;">
 							<div class="col-md-12" align="center" style="margin-bottom: 5px">
 								<h4>二级分类</h4>
@@ -152,7 +152,7 @@ a {
 								</div>
 							</div>
 						</div>
-						
+						 -->
 					</div>
 				</div>
 			</div>

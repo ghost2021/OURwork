@@ -27,6 +27,16 @@ public class TypeController {
 		this.typeService = typeService;
 		this.goodService = goodService;
 	}
+	//创建分类
+	@RequestMapping(value = "/firstType/create", method = RequestMethod.POST)
+	public ResponseEntity createSecondType(@RequestBody FirstType firstType) {
+		Boolean success = typeService.createFirstType(firstType);
+		if (success) {
+			List<FirstType> firstTypeList = typeService.getAllFirstType();
+			return ResponseEntity.ok(firstTypeList);
+		}
+		return ResponseEntity.ok(success);
+	}
 	//显示分类
 	@RequestMapping(value = "/firstType/{firstTypeId}", method =
 			  RequestMethod.GET) public ResponseEntity getFirstType(@PathVariable Integer
