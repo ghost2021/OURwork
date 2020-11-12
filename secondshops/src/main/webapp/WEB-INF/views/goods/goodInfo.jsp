@@ -165,7 +165,7 @@
 			</div>
 	</div>
 
-	<jsp:include page="../home/footer.jsp" />
+	
 
 	<script>
     var swiper = new Swiper('.swiper-container', {
