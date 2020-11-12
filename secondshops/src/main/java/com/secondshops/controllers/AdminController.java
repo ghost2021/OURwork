@@ -80,7 +80,7 @@ public class AdminController {
     }
     
     
-    //进入管理员界面
+    //进入管理员界面并显示用户和商品
     @RequestMapping(value = "/adminPage", method = RequestMethod.GET)
     public String getAdminPage(ModelMap model,
                                HttpSession session){

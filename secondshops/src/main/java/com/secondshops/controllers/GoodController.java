@@ -189,6 +189,15 @@ public class GoodController {
 		message = "";
 		return "goods/goodInfo";
 	}
+	//后台删除商品
+	@RequestMapping(value = "/goods/userGoodEdit/delete/{goodId}", method = RequestMethod.GET)
+	public ResponseEntity deleteGood(@PathVariable Integer goodId) {
+		Boolean success;
+		success = goodService.deleteGood(goodId) > 0;
+		return ResponseEntity.ok(success);
+	}
+	
+	
 	
 
 	
