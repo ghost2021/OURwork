@@ -24,7 +24,7 @@ a {
 </style>
 </head>
 <body>
-	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<nav >
 	<div class="container">
 		<div class="navbar-header">
 			<a class="navbar-brand" style="font-size: 25px">后台管理</a>
@@ -307,7 +307,7 @@ a {
 		</div>
 	</div>
 
-	<footer class="footer1">
+	<footer >
 	<p>
 		&nbsp;版权所有&nbsp;&nbsp;2019
 	</p>

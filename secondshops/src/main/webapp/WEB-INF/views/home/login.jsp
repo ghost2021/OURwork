@@ -10,7 +10,7 @@
 	href="<c:url value="/statics/bootstrap-3.3.0/css/bootstrap.css"/>">
 <link rel="stylesheet" href="<c:url value="/statics/css/style.css"/>">
 </head>
-<body style="background:#e7f6e7">
+<body>
 	<div style="margin: 20px auto">
 		<div style="margin: 100px auto; margin-bottom: 40px" align="center">
 			<h1 style="font-size: 60px">校园二手交易平台</h1>
