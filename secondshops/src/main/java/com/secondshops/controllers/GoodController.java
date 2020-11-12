@@ -204,6 +204,16 @@ public class GoodController {
 		return ResponseEntity.ok(success);
 	}
 	
+	@RequestMapping(value = "/admin/goods/allGoods", method = RequestMethod.GET)
+	public ResponseEntity adminGetAllGoods() {
+		List<Good> goodList = goodService.getAllGoodList();
+		for (Good good : goodList) {
+			good.setGoodUser(userService.getUserById(good.getUserId()));
+			good.setGoodSecondType(typeService.getSecondTypeById(good
+					.getSecondTypeId()));
+		}
+		return ResponseEntity.ok(goodList);
+	}
 	
 	
 

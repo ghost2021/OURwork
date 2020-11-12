@@ -15,10 +15,17 @@ public interface FirstTypeMapper {
 	@Select("select id from first_type_table ORDER BY id desc limit 0, 1;")
 	Integer getFirstTypeLastId();
 
+
+	@Select("select * from first_type_table where first_type_id = #{firstTypeId}")
+	List<FirstType> getFirstTypeById(int firstTypeId);
+	
+	
 	@Insert("insert into first_type_table(id, name) values(#{id}, #{name});")
 	int createFirstType(FirstType firstType);
 
 	@Delete("delete from first_type_table where id = #{firstTypeId};")
 	int deleteFirstType(Integer firstTypeId);
+
+	
 
 }
