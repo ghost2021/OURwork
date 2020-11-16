@@ -81,12 +81,12 @@
 							<c:choose>
 								<c:when test="${good.id == 0}">
 									<button type="submit" class="btn"
-										style="background-color: #e5e5e5">获取物品ID</button>
+										style="background-color: #e5e5e5">添加商品</button>
 								</c:when>
 								
 								<c:otherwise>
 									<button disabled="disabled" type="submit" class="btn"
-										style="background-color: #e5e5e5">已获取物品ID${good.id}</button>
+										style="background-color: #e5e5e5">已获取商品ID${good.id}</button>
 								</c:otherwise>
 							</c:choose>
 						</div>

@@ -53,7 +53,7 @@ public class GoodController {
 			@RequestParam(required = false) Integer secondTypeId,
 			@RequestParam(required = false) Integer firstTypeId,
 			@RequestParam(required = false, defaultValue = "0") int offset,
-			@RequestParam(required = false, defaultValue = "6") int limit) {
+			@RequestParam(required = false, defaultValue = "8") int limit) {
 
 		List<Good> goods = goodService.getGoodsBySearchAndType(searchText,
 				 firstTypeId, offset, limit);
