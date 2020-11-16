@@ -169,7 +169,7 @@
 
 	<jsp:include page="footer.jsp" />
 
-	<script>
+<!-- 	<script>
    function typeButton(firstTypeId) {
         var firstType ="#" + firstTypeId;
         var firstType1 = "#type" + firstTypeId;
@@ -182,7 +182,7 @@
             $(firstType).slideUp();
         }
     } 
-	</script>
+	</script> -->
 	<script src="<c:url value="/statics/jquery-1.12.4/jquery-1.12.4.js"/>"></script>
 	<script src="<c:url value="/statics/bootstrap-3.3.0/js/bootstrap.js"/>"></script>
 	<script src="<c:url value="/statics/jquery-ui-1.12.1/jquery-ui.js"/>"></script>

@@ -26,12 +26,12 @@ public class GoodService {
 
 	@Transactional
 	public List<Good> getGoodsBySearchAndType(String searchText,
-			Integer secondTypeId, int offset, int limit) {
+			Integer firstTypeId, int offset, int limit) {
 		if (!searchText.equals("")) {
 			searchText = "%" + searchText + "%";
 			return goodMapper.getGoodsBySearch(searchText, offset, limit);
-		} else if (secondTypeId != null) {
-			return goodMapper.getGoodsByType(secondTypeId, offset, limit);
+		} else if (firstTypeId != null) {
+			return goodMapper.getGoodsByType(firstTypeId, offset, limit);
 		} else {
 			return goodMapper.getAllGoods(offset, limit);
 		}

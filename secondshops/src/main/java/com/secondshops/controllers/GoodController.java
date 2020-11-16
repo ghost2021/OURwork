@@ -53,12 +53,12 @@ public class GoodController {
 			@RequestParam(required = false) Integer secondTypeId,
 			@RequestParam(required = false) Integer firstTypeId,
 			@RequestParam(required = false, defaultValue = "0") int offset,
-			@RequestParam(required = false, defaultValue = "40") int limit) {
+			@RequestParam(required = false, defaultValue = "6") int limit) {
 
 		List<Good> goods = goodService.getGoodsBySearchAndType(searchText,
 				 firstTypeId, offset, limit);
 		double goodsNum = goodService.getGoodsBySearchAndTypeCount(searchText,
-				secondTypeId);
+				firstTypeId);
 		List<FirstType> firstTypes = typeService.getAllFirstType();
 		for (FirstType firstType : firstTypes) {
 			firstType.setSecondType(typeService
