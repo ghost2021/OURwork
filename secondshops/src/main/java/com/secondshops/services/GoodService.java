@@ -39,12 +39,12 @@ public class GoodService {
 
 	@Transactional
 	public int getGoodsBySearchAndTypeCount(String searchText,
-			Integer secondTypeId) {
+			Integer firstTypeId) {
 		if (!searchText.equals("")) {
 			searchText = "%" + searchText + "%";
 			return goodMapper.getGoodsBySearchCount(searchText);
-		} else if (secondTypeId != null) {
-			return goodMapper.getGoodsByTypeCount(secondTypeId);
+		} else if (firstTypeId != null) {
+			return goodMapper.getGoodsByTypeCount(firstTypeId);
 		} else {
 			return goodMapper.getAllGoodsCount();
 		}

@@ -25,7 +25,7 @@ public interface GoodMapper {
 
 	@Select("Select count(*) from good_table where status_id = 1;")
 	int getAllGoodsCount();
-
+    
 	@Select("Select * from good_table WHERE name like #{0} and status_id = 1 ORDER BY upload_date DESC LIMIT #{1}, #{2};")
 	List<Good> getGoodsBySearch(String searchText, int offset, int limit);
 

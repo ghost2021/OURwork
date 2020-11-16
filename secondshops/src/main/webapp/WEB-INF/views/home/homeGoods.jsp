@@ -14,26 +14,7 @@
 	href="<c:url value="/statics/jquery-ui-1.12.1/jquery-ui.theme.css"/>">
 <link rel="stylesheet" href="<c:url value="/statics/css/style.css"/>">
 <script src="<c:url value="/statics/jquery-1.12.4/jquery-1.12.4.js"/>"></script>
-<script>
-	$(function() {
-		var width = $("#type-bar").width();
-		$(window).scroll(function() {
-			if ($(document).scrollTop() >= $("#search-bar").height()) {
-				$("#type-bar").css({
-					"position" : "fixed",
-					"top" : 150 - $("#search-bar").height() + "px",
-					"width" : width
-				});
-			} else {
-				$("#type-bar").css({
-					"position" : "fixed",
-					"top" : 150 - $(document).scrollTop() + "px",
-					"width" : width
-				});
-			}
-		})
-	})
-</script>
+
 </head>
 <body>
 	<div>
@@ -43,12 +24,12 @@
 	<div class="col-md-12" style="height: 80px;" id="search-bar">
 		<div class="col-md-3"></div>
 		<div class="col-md-6" style="padding-top: 10px">
-			<form class="form-horizontal" action="/secondshop/" method="get">
+			<form class="form-horizontal" action="/secondshops/" method="get">
 				<div class="form-group col-md-12">
 					<div class="col-md-10">
 						<input id="searchText" name="searchText" type="text"
 							class="form-control" value="${param.searchText}"
-							placeholder="这里可以搜索哦~~">
+							placeholder="搜索">
 					</div>
 
 					<button class="btn btn-success; col-md-2"  style="background: #e7f6e7">搜索</button>
@@ -169,20 +150,7 @@
 
 	<jsp:include page="footer.jsp" />
 
-<!-- 	<script>
-   function typeButton(firstTypeId) {
-        var firstType ="#" + firstTypeId;
-        var firstType1 = "#type" + firstTypeId;
-        if (document.getElementById(firstTypeId).style.display === "none") {
-            $(".btn-type").slideUp();
-            $(firstType1).slideDown();
-            $(firstType).slideDown();
-        } else {
-            $(".btn-type").slideDown();
-            $(firstType).slideUp();
-        }
-    } 
-	</script> -->
+
 	<script src="<c:url value="/statics/jquery-1.12.4/jquery-1.12.4.js"/>"></script>
 	<script src="<c:url value="/statics/bootstrap-3.3.0/js/bootstrap.js"/>"></script>
 	<script src="<c:url value="/statics/jquery-ui-1.12.1/jquery-ui.js"/>"></script>
