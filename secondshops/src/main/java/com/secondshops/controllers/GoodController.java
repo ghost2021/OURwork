@@ -57,17 +57,22 @@ public class GoodController {
 
 		List<Good> goods = goodService.getGoodsBySearchAndType(searchText,
 				 firstTypeId, offset, limit);
-		double goodsNum = goodService.getGoodsBySearchAndTypeCount(searchText,
-				firstTypeId);
-		List<FirstType> firstTypes = typeService.getAllFirstType();
 		/*
-		 * for (FirstType firstType : firstTypes) { firstType.setSecondType(typeService
-		 * .getSecondTypeByFirstTypeId(firstType.getId())); }
+		 * double goodsNum = goodService.getGoodsBySearchAndTypeCount(searchText,
+		 * firstTypeId);
 		 */
+		List<FirstType> firstTypes = typeService.getAllFirstType();
+		
+		  for (FirstType firstType : firstTypes) {
+			  firstType.setSecondType(typeService
+		  .getSecondTypeByFirstTypeId(firstType.getId())); }
+		 
 		model.addAttribute("firstTypes", firstTypes);
 		model.addAttribute("goods", goods);
-		model.addAttribute("pages", Math.ceil(goodsNum / limit));
-		model.addAttribute("goodsNum", goodsNum);
+		/*
+		 * model.addAttribute("pages", Math.ceil(goodsNum / limit));
+		 * model.addAttribute("goodsNum", goodsNum);
+		 */
 		model.addAttribute("offset", offset);
 		model.addAttribute("limit", limit);
 		return "home/homeGoods";
