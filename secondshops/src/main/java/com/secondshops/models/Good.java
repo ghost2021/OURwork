@@ -10,6 +10,9 @@ public class Good {
 	private int firstTypeId;
 	private int secondTypeId;
 	private SecondType goodSecondType;
+	private FirstType goodFirstType;
+
+
 	private String describe;
 	private String uploadDate;
 	private float prise;
@@ -56,6 +59,14 @@ public class Good {
 
 	public void setSecondTypeId(int secondTypeId) {
 		this.secondTypeId = secondTypeId;
+	}
+	
+	public FirstType getGoodFirstType() {
+		return goodFirstType;
+	}
+
+	public void setGoodFirstType(FirstType goodFirstType) {
+		this.goodFirstType = goodFirstType;
 	}
 
 	public SecondType getGoodSecondType() {

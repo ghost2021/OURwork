@@ -104,9 +104,9 @@
 						</div>
 						
 						<div class="col-md-8" style="padding: 0px">
-							<p style="color: red; height: 40px; font-size: 20px">￥${goodInfo.prise}</p>
+							<p style="color: red; height: 40px; font-size: 20px">${goodInfo.prise}</p>
 							<p style="color: #808080; height: 40px">${goodInfo.goodUser.name}</p>
-							<p style="color: #808080; height: 40px">${goodInfo.goodSecondType.name}</p>
+							<p style="color: #808080; height: 40px">${goodInfo.goodFirstType.name}</p>
 							<p style="color: #808080; height: 40px">${goodInfo.uploadDate}</p>
 						</div>
 						

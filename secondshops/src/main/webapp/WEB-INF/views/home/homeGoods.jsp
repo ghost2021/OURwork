@@ -65,19 +65,7 @@
 							
 						</div>
 
-						<div class="col-md-12 r" id="${firstType.id}"
-							style="display: none; background-color: #f5f5f5; padding-left: 0px; padding-right: 0px;"
-							align="center">
-							<%-- <c:forEach var="secondType" items="${firstType.secondType}">
-								<a class="col-md-12 r-type"
-									href="?secondTypeId=${secondType.id}">
-									<p></p>
-									<p>${secondType.name}</p>
-								</a>
-							</c:forEach> --%>
-						
-				
-						</div>
+		
 					</c:forEach>
 				</div>
 			</div>

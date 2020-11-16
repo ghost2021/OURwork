@@ -121,38 +121,7 @@ a {
 								</div>
 							</div>
 						</div>
-		<!-- 				
-						<div class="col-md-6" style="height: 100%;">
-							<div class="col-md-12" align="center" style="margin-bottom: 5px">
-								<h4>二级分类</h4>
-							</div>
-							
-							<div class="col-md-12 r"
-								style="background-color: #ffffff; padding: 40px; height: 88%; overflow-y: auto;">
-								<div id="secondType-ba" class="col-md-12" style="padding: 0px">
-									<div class="col-md-12" align="center">
-										<h3 style="color: #737373">请先选择一级分类</h3>
-									</div>
-								</div>
-								
-								<div id="sec" class="col-md-9 r"
-									style="display: none; padding: 15px; ">
-									<div class="form-group">
-										<label for="addsecond">二级分类名称</label> <input id="addsecond"
-											class="form-control" type="text">
-									</div>
-									<button onclick="addSecondType()" class="btn btn-success">添加</button>
-									<button onclick="closeAddbar('sec')"
-										class="btn btn-primary pull-right">取消</button>
-								</div>
-								
-								<div onclick="openAddbar('sec')" class="col-md-9 addFirstType r"
-									id="addSecondBtn" style="display: none">
-									<B>+</B>
-								</div>
-							</div>
-						</div>
-						 -->
+		
 					</div>
 				</div>
 			</div>
@@ -399,43 +368,12 @@ a {
         $("#fir").slideUp();
     }
 
-    function addSecondType() {
-        var name = document.getElementById("addsecond").value;
-        var newSecondType = {
-            "firstTypeId":first_type_id,
-            "name":name
-        };
-        $.ajax({
-            type:"POST",
-            url:"/secondshops/type/secondType/create",
-            contentType: "application/json", //必须这样写
-            dataType:"json",
-            data:JSON.stringify(newSecondType),//要提交是json字符串
-            success:function (data) {
-                console.log(data);
-                if (data === false){
-                    alert("由于未知原因，二级分类添加失败！");
-                } else {
-                    document.getElementById("secondType-ba").innerHTML = "";
-                    $.each(data, function (i, type) {
-                        var secondId = type.id;
-                        var secondName = type.name;
-                        var secondType = "<div class='col-md-9 adUlLi r'>"+secondName+"</div>"+
-                            "<div onclick='deleteSecondButton("+secondId+")' class='col-md-1 delType'>X</div>";
-                        $("#secondType-ba").append(secondType);
-                    });
-                    alert("分类添加成功！");
-                }
-            }
-
-        });
-        $("#sec").slideUp();
-    }
+ 
 
     function deleteFirst(first_id) {
         $.getJSON("/secondshops/type/firstType/delete/"+first_id, function (data) {
             if (data === false){
-                alert("删除失败，请确认该分类下是否还有二级分类！");
+                alert("删除失败！");
             } else {
                 document.getElementById("firstType-ba").innerHTML = "";
                 $.each(data, function (i, type) {
@@ -450,26 +388,7 @@ a {
         })
     }
 
-    function deleteSecond(second_id) {
-        $.getJSON("/secondshops/type/secondType/delete/"+second_id, function (data) {
-            if (data === false){
-                alert("删除失败，请确认该分类下是否还有物品！");
-            } else if (data === "isNull") {
-                document.getElementById("secondType-ba").innerHTML = "";
-                alert("该分类下暂无分类！")
-            } else {
-                document.getElementById("secondType-ba").innerHTML = "";
-                $.each(data, function (i, type) {
-                    var secondId = type.id;
-                    var secondName = type.name;
-                    var secondType = "<div class='col-md-9 adUlLi r'>"+secondName+"</div>"+
-                        "<div onclick='deleteSecondButton("+secondId+")' class='col-md-1 delType'>X</div>";
-                    $("#secondType-ba").append(secondType);
-                });
-                alert("删除成功！");
-            }
-        })
-    }
+
 
     function firstButton(first_id) {
         var firstId = "#" + first_id;
@@ -610,57 +529,6 @@ a {
 	</script>
 
 	<script>
-    // order function
-    function deleteOrder(orderId) {
-        var dblChoseAlert = simpleAlert({
-            "content": "确认删除订单？ 订单id:"+orderId,
-            "buttons":{
-                "确定":function () {
-                    dblChoseAlert.close();
-                    delOrder(orderId);
-                },
-                "取消":function () {
-                    dblChoseAlert.close();
-                }
-            }
-        })
-    }
-
-    function delOrder(orderId) {
-        $.getJSON("/secondshops/user/order/delete/"+orderId, function (data) {
-            if (data){
-                $.getJSON("/secondshops/user/order/allOrder", function (data) {
-                    document.getElementById("orderTable").innerHTML = "";
-                    $.each(data, function (i, type) {
-                        var orderId = type.id;
-                        var orderSeller = type.seller;
-                        var orderGoodId = type.goodId;
-                        var orderGoodName = type.goodName;
-                        var orderMoney = type.money;
-                        var orderSubmitDate= type.submitDate;
-                        var orderStatus = type.statusId === 2 ? "交易中":"交易完成";
-                        var order = "<tr style=\"color: #666666\">"+
-                        "<td style=\"width: 10%\">"+orderId+"</td>" +
-                        "<td style=\"width: 15%\">"+orderSeller+"</td>" +
-                        "<td style=\"width: 10%\">"+orderGoodId+"</td>" +
-                        "<td style=\"width: 15%\">"+orderGoodName+"</td>" +
-                        "<td style=\"width: 10%\">"+orderMoney+"</td>" +
-                        "<td style=\"width: 20%\">"+orderSubmitDate+"</td>" +
-                        "<td style=\"width: 10%\">"+orderStatus+"</td>" +
-                        "<td style=\"width: 10%\"><a onclick='deleteOrder("+orderId+")'>删除</a></td>" +
-                        "</tr>";
-                        $("#orderTable").append(order);
-                    })
-                });
-                alert("订单删除成功！");
-            } else {
-                alert("订单删除失败！");
-            }
-        });
-    }
-	</script>
-
-	<script>
     // good function
     function deleteGood(goodId) {
         var dblChoseAlert = simpleAlert({
@@ -700,7 +568,7 @@ a {
                     $.each(data, function (i, type) {
                         var goodId = type.id;
                         var goodName = type.name;
-                        var goodType = type.goodSecondType.name;
+                        //var goodType = type.goodFirstType.name;
                         var goodUserName = type.goodUser.name;
                         var goodUploadeDate = type.uploadDate;
                         var goodStatus = type.statusId === 0 ? '已下架':'在售';
@@ -708,7 +576,7 @@ a {
                         var good = "<tr style=\"color: #666666\">" +
                             "<td style=\"width: 8%\">"+goodId+"</td>" +
                             "<td style=\"width: 15%\">"+goodName+"</td>" +
-                            "<td style=\"width: 10%\">"+goodType+"</td>" +
+                            
                             "<td style=\"width: 15%\">"+goodUserName+"</td>" +
                             "<td style=\"width: 24%\">"+goodUploadeDate+"</td>" +
                             "<td style=\"width: 13%\">"+goodStatus+"</td>" +

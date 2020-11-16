@@ -193,10 +193,11 @@ public class GoodController {
 	}
 	//后台删除商品
 	@RequestMapping(value = "/goods/userGoodEdit/delete/{goodId}", method = RequestMethod.GET)
-	public ResponseEntity deleteGood(@PathVariable Integer goodId) {
+	public ResponseEntity<Boolean> deleteGood(@PathVariable Integer goodId) {
 		Boolean success;
 		success = goodService.deleteGood(goodId) > 0;
-		return ResponseEntity.ok(success);
+		 return ResponseEntity.ok(success); 
+	
 	}
 	//后台下架商品
 	@RequestMapping(value = "/goods/userGoodEdit/updateGoodStatus/{goodId}", method = RequestMethod.GET)
