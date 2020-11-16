@@ -22,15 +22,27 @@ public class TypeService {
 	public List<FirstType> getAllFirstType() {
 		return firstTypeMapper.getAllFirstType();
 	}
+	
 	@Transactional
 	public List<FirstType> getFirstTypeById(int firstTypeId) {
 		return firstTypeMapper.getFirstTypeById(firstTypeId);
 	}
+	
+	
+	//goodInfo-type
+	@Transactional
+	public FirstType getFirstTypeById1(int firstTypeId) {
+		return firstTypeMapper.getFirstTypeById1(firstTypeId);
+	}
+
+
+	
 
 	@Transactional
 	public List<SecondType> getSecondTypeByFirstTypeId(int firstTypeId) {
 		return secondTypeMapper.getSecondTypeByFirstTypeId(firstTypeId);
 	}
+     
 
 	@Transactional
 	public SecondType getSecondTypeById(int secondTypeId) {

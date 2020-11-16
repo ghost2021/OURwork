@@ -14,7 +14,26 @@
 	href="<c:url value="/statics/jquery-ui-1.12.1/jquery-ui.theme.css"/>">
 <link rel="stylesheet" href="<c:url value="/statics/css/style.css"/>">
 <script src="<c:url value="/statics/jquery-1.12.4/jquery-1.12.4.js"/>"></script>
-
+<!-- <script>
+	$(function() {
+		var width = $("#type-bar").width();
+		$(window).scroll(function() {
+			if ($(document).scrollTop() >= $("#search-bar").height()) {
+				$("#type-bar").css({
+					"position" : "fixed",
+					"top" : 150 - $("#search-bar").height() + "px",
+					"width" : width
+				});
+			} else {
+				$("#type-bar").css({
+					"position" : "fixed",
+					"top" : 150 - $(document).scrollTop() + "px",
+					"width" : width
+				});
+			}
+		})
+	})
+</script> -->
 </head>
 <body>
 	<div>
@@ -29,7 +48,7 @@
 					<div class="col-md-10">
 						<input id="searchText" name="searchText" type="text"
 							class="form-control" value="${param.searchText}"
-							placeholder="搜索">
+							placeholder="这里可以搜索哦~~">
 					</div>
 
 					<button class="btn btn-success; col-md-2"  style="background: #e7f6e7">搜索</button>
@@ -52,10 +71,11 @@
 				id="type-bar">
 				<div class="col-md-12" align="center"
 					style="padding-left: 0px; padding-right: 0px;" id="type-button">
+					<!-- 左侧分类 -->
 					<c:forEach var="firstType" items="${firstTypes}">
-					
+	
 						<div
-							style="height: 50px; width: 100%;  margin-top: 15px;"
+							style="height: 50px; width: 100%; background-color: #e7f6e7; margin-top: 15px;"
 							class="btn-type" align="center;" id="type${firstType.id}"
 							onclick="typeButton(${firstType.id})">
 							<a class="col-md-12 r-type" href="?firstTypeId=${firstType.id}">
@@ -64,13 +84,12 @@
 							
 							
 						</div>
-
-		
 					</c:forEach>
 				</div>
 			</div>
 
 			<div class="col-md-10" style="margin-top: 10px; float: right;">
+			<!-- 模糊查询显示 -->
 				<c:choose>
 					<c:when test="${goods.size() == 0}">
 						<div align="center">
@@ -139,6 +158,7 @@
 	<jsp:include page="footer.jsp" />
 
 
+	</script> -->
 	<script src="<c:url value="/statics/jquery-1.12.4/jquery-1.12.4.js"/>"></script>
 	<script src="<c:url value="/statics/bootstrap-3.3.0/js/bootstrap.js"/>"></script>
 	<script src="<c:url value="/statics/jquery-ui-1.12.1/jquery-ui.js"/>"></script>

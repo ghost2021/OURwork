@@ -15,7 +15,9 @@ public interface SecondTypeMapper {
 
 	@Select("select id from second_type_table where first_type_id = #{firstTypeId} ORDER BY id desc limit 0, 1;")
 	Integer getSecondTypeLastId(Integer firstTypeId);
-
+    
+	
+	
 	@Select("select * from second_type_table where id = #{secondTypeId}")
 	SecondType getSecondTypeById(int secondTypeId);
 

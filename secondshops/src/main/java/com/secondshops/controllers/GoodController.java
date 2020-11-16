@@ -93,17 +93,17 @@ public class GoodController {
 	@RequestMapping(value = "/goods/publishGood", method = RequestMethod.POST)
 	public String getGoodId(ModelMap model, HttpSession session,
 			@Valid Good good) {
-		List<FirstType> firstTypes = typeService.getAllFirstType();
+		//List<FirstType> firstTypes = typeService.getAllFirstType();
 		User user = (User) session.getAttribute("user");
-		List<Good> goods = goodService.getAllGoods(0, 5);
+		//List<Good> goods = goodService.getAllGoods(0, 5);
 		good.setUserId(user.getId());
 		good.setPhotoUrl("/statics/image/goods/default/nophoto.png");
 		if (goodService.insertGood(good) != 1) {
 			System.out.println("插入物品失败！");
 		}
-		model.addAttribute("goods", goods);
+		//model.addAttribute("goods", goods);
 		model.addAttribute("good", good);
-		model.addAttribute("firstTypes", firstTypes);
+		//model.addAttribute("firstTypes", firstTypes);
 		return "goods/publishGood";
 	}
 	//上传商品图片
@@ -173,13 +173,18 @@ public class GoodController {
 		List<Image> images = imageService.getImageByGoodId(goodId);
 		User goodUser = userService.getUserById(goodInfo.getUserId());
 		goodInfo.setGoodUser(userService.getUserById(goodInfo.getUserId()));
-		goodInfo.setGoodSecondType(typeService.getSecondTypeById(goodInfo
-				.getSecondTypeId()));
+		//goodInfo-type
+		goodInfo.setGoodFirstType(typeService.getFirstTypeById1(goodInfo.getFirstTypeId()));
+		goodInfo.setGoodSecondType(typeService.getSecondTypeById(goodInfo.getSecondTypeId()));
 		List<Review> reviews = reviewService.gerReviewByGoodId(goodId);
 		for (Review review : reviews) {
 			review.setReplys(reviewService.gerReplyByReviewId(review.getId()));
 		}
-		List<Good> goods = goodService.getRECGoods(goodInfo.getSecondTypeId(),
+		/*
+		 * List<Good> goods = goodService.getRECGoods(goodInfo.getSecondTypeId(),
+		 * goodInfo.getId());
+		 */
+		List<Good> goods = goodService.getRECGoods(goodInfo.getFirstTypeId(),
 				goodInfo.getId());
 		model.addAttribute("message", message);
 		model.addAttribute("reviews", reviews);

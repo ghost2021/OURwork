@@ -13,8 +13,7 @@
 <link rel="stylesheet"
 	href="<c:url value="/statics/jquery-ui-1.12.1/jquery-ui.theme.css"/>">
 <link rel="stylesheet" href="<c:url value="/statics/css/style.css"/>">
-<link rel="stylesheet"
-	href="<c:url value="/statics/css/simpleAlert.css"/>">
+<link rel="stylesheet"href="<c:url value="/statics/css/simpleAlert.css"/>">
 <script src="<c:url value="/statics/jquery-1.12.4/jquery-1.12.4.js"/>"></script>
 <script src="<c:url value="/statics/js/simpleAlert.js"/>"></script>
 <style>
@@ -286,8 +285,8 @@ a {
     function menuBar(menuId) {
         var menubar = "#" + menuId + "";
         var menu_context = menubar + "-context";
-        $(".admenu-b").removeClass("admenu-b").addClass("admenu");
-        $(menubar).removeClass("admenu").addClass("admenu-b");
+        //$(".admenu-b").removeClass("admenu-b").addClass("admenu");
+        //$(menubar).removeClass("admenu").addClass("admenu-b");
         $("#menu-context > div").slideUp();
         $(menu_context).slideDown();//显示不同div
     }

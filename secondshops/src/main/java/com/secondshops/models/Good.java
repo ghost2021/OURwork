@@ -60,7 +60,7 @@ public class Good {
 	public void setSecondTypeId(int secondTypeId) {
 		this.secondTypeId = secondTypeId;
 	}
-	
+	//
 	public FirstType getGoodFirstType() {
 		return goodFirstType;
 	}
@@ -68,7 +68,7 @@ public class Good {
 	public void setGoodFirstType(FirstType goodFirstType) {
 		this.goodFirstType = goodFirstType;
 	}
-
+   //
 	public SecondType getGoodSecondType() {
 		return goodSecondType;
 	}
@@ -76,7 +76,7 @@ public class Good {
 	public void setGoodSecondType(SecondType goodSecondType) {
 		this.goodSecondType = goodSecondType;
 	}
-
+    //
 	public String getDescribe() {
 		return describe;
 	}
