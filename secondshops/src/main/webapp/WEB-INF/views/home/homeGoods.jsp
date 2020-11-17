@@ -48,7 +48,7 @@
 					<div class="col-md-10">
 						<input id="searchText" name="searchText" type="text"
 							class="form-control" value="${param.searchText}"
-							placeholder="这里可以搜索哦~~">
+							placeholder="搜索">
 					</div>
 
 					<button class="btn btn-success; col-md-2"  style="background: #e7f6e7">搜索</button>

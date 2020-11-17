@@ -78,21 +78,19 @@ a {
 		
 		<div id="menu-context" class="col-md-10"
 			style="height: 92%; padding-left: 0px; padding-right: 30px; float: right;">
-			<div id="menu1-context" class="col-md-12">
+			<div id="menu1-context" ">
 				<div class="col-md-12" align="center">
 					<h3>物品分类管理</h3>
 				</div>
 				
-				<div class="col-md-12 r"
-					style="background-color: #ffffff; height: 78%; margin: 15px; margin-top: 5px; padding: 15px">
-					<div class="col-md-12"
-						style=" height: 100%; padding: 15px">
+				
+					<div >
 						<div class="col-md-6" style="height: 100%;">
 							<div class="col-md-12" align="center" style="margin-bottom: 5px">
 								<h4>分类</h4>
 							</div>
 							
-							<div class="col-md-12 r"
+							<div class="col-md-12 r" align="center"
 								style="background-color: #ffffff; padding: 40px; height: 88%; overflow-y: auto;">
 								<div id="firstType-ba" class="col-md-12" style="padding: 0px">
 									<c:forEach var="firstType" items="${firstTypeList}">
@@ -122,7 +120,7 @@ a {
 						</div>
 		
 					</div>
-				</div>
+				
 			</div>
 
 			<div id="menu2-context" class="col-md-12" style="display: none">
