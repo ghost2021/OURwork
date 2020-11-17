@@ -57,10 +57,7 @@ public class GoodController {
 
 		List<Good> goods = goodService.getGoodsBySearchAndType(searchText,
 				 firstTypeId, offset, limit);
-		/*
-		 * double goodsNum = goodService.getGoodsBySearchAndTypeCount(searchText,
-		 * firstTypeId);
-		 */
+		
 		List<FirstType> firstTypes = typeService.getAllFirstType();
 		
 		  for (FirstType firstType : firstTypes) {
@@ -69,10 +66,7 @@ public class GoodController {
 		 
 		model.addAttribute("firstTypes", firstTypes);
 		model.addAttribute("goods", goods);
-		/*
-		 * model.addAttribute("pages", Math.ceil(goodsNum / limit));
-		 * model.addAttribute("goodsNum", goodsNum);
-		 */
+	
 		model.addAttribute("offset", offset);
 		model.addAttribute("limit", limit);
 		return "home/homeGoods";
@@ -98,9 +92,9 @@ public class GoodController {
 	@RequestMapping(value = "/goods/publishGood", method = RequestMethod.POST)
 	public String getGoodId(ModelMap model, HttpSession session,
 			@Valid Good good) {
-		//List<FirstType> firstTypes = typeService.getAllFirstType();
+		
 		User user = (User) session.getAttribute("user");
-		//List<Good> goods = goodService.getAllGoods(0, 5);
+		
 		good.setUserId(user.getId());
 		good.setPhotoUrl("/statics/image/goods/default/nophoto.png");
 		if (goodService.insertGood(good) != 1) {

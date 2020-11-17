@@ -53,12 +53,12 @@
 
 					<button class="btn btn-success; col-md-2"  style="background: #e7f6e7">搜索</button>
 
-					<div class="col-md-12">
+					<%-- <div class="col-md-12">
 						<c:if test="${param.searchText != '' && param.searchText != null}">
 							<p></p>
 							<p>为您搜索到“${param.searchText}”相关物品${goodsNum}条记录</p>
 						</c:if>
-					</div>
+					</div> --%>
 				</div>
 			</form>
 		</div>

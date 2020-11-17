@@ -13,12 +13,12 @@
 <body>
 	<div style="margin: 20px auto">
 		<div style="margin: 100px auto; margin-bottom: 40px" align="center">
-			<h1 style="font-size: 60px">校园二手交易平台</h1>
+			<h1 style="font-size: 60px">一战成硕</h1>
 		</div>
 	</div>
 
 	<div class="container" style="position: relative; margin: 80px auto;">
-		<div class="col-md-6 login-back"
+		<div 
 			style="position: absolute; left: 50%; transform: translateX(-50%);">
 			<form action="/secondshops/login" method="post">
 				<input id="preURL" name="preURL" value="${preURL}"
