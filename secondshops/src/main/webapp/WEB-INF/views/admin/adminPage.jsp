@@ -43,7 +43,7 @@ a {
 	<div class="container" style="width: 100%; padding: 0px">
 		<div class="col-md-2"
 			style="height: 92%; padding: 0px;">
-			<div style="float: right; width: 100%; background: white">
+			<div style="float: right; width: 100%; >
 				<div  onclick="menuBar('menu1')" 
 					align="center">
 					<p>
@@ -91,7 +91,7 @@ a {
 							</div>
 							
 							<div class="col-md-12 r" align="center"
-								style="background-color: #ffffff; padding: 40px; height: 88%; overflow-y: auto;">
+								padding: 40px; height: 88%; overflow-y: auto;">
 								<div id="firstType-ba" class="col-md-12" style="padding: 0px">
 									<c:forEach var="firstType" items="${firstTypeList}">
 										<div onclick="firstButton(${firstType.id})"
@@ -129,7 +129,7 @@ a {
 				</div>
 				
 				<div class="col-md-12"
-					style="background-color: #ffffff; height: 78%; margin: 15px; margin-top: 5px; padding: 20px">
+					 height: 78%; margin: 15px; margin-top: 5px; padding: 20px">
 					<div class="col-md-12 r" style="height: 100%; padding: 15px;">
 						<div class="col-md-12 column" style="padding-left: 15px;">
 							<table class="table" style="margin-bottom: 0px">
@@ -172,60 +172,14 @@ a {
 				</div>
 			</div>
 
-			<div id="menu3-context" class="col-md-12" style="display: none">
-				<div class="col-md-12" align="center">
-					<h3>订单管理</h3>
-				</div>
-				<div class="col-md-12"
-					style="background-color: #ffffff; height: 78%; margin: 15px; margin-top: 5px; padding: 20px">
-					<div class="col-md-12 r" style="height: 100%; padding: 15px;">
-						<div class="col-md-12 column" style="padding-right: 34px;">
-							<table class="table" style="margin-bottom: 0px">
-								<thead>
-									<tr style="color: #666666">
-										<th style="width: 10%">订单编号</th>
-										<th style="width: 15%">卖家</th>
-										<th style="width: 10%">物品ID</th>
-										<th style="width: 20%">物品名称</th>
-										<th style="width: 10%">金额</th>
-										<th style="width: 15%">提交时间</th>
-										<th style="width: 10%">订单状态</th>
-										<th style="width: 10%">操作</th>
-									</tr>
-								</thead>
-							</table>
-						</div>
-						
-						<div class="col-md-12 column"
-							style="overflow-y: auto; height: 92%;">
-							<table class="table table-hover">
-								<tbody id="orderTable">
-									<c:forEach var="order" items="${orderList}">
-										<tr style="color: #666666">
-											<td style="width: 10%">${order.id}</td>
-											<td style="width: 15%">${order.seller}</td>
-											<td style="width: 10%">${order.goodId}</td>
-											<td style="width: 15%">${order.goodName}</td>
-											<td style="width: 10%">${order.money}</td>
-											<td style="width: 20%">${order.submitDate}</td>
-											<td style="width: 10%">${order.statusId == 2 ? "交易中":"交易完成"}</td>
-											<td style="width: 10%"><a
-												onclick="deleteOrder(${order.id})">删除</a></td>
-										</tr>
-									</c:forEach>
-								</tbody>
-							</table>
-						</div>
-					</div>
-				</div>
-			</div>
+
 
 			<div id="menu4-context" class="col-md-12" style="display: none">
 				<div class="col-md-12" align="center">
 					<h3>用户管理</h3>
 				</div>
 				<div class="col-md-12"
-					style="background-color: #ffffff; height: 78%; margin: 15px; margin-top: 5px; padding: 20px">
+					 height: 78%; margin: 15px; margin-top: 5px; padding: 20px">
 					<div class="col-md-12 r" style="height: 100%; padding: 15px;">
 						<div class="col-md-12 column" style="padding-right: 34px;">
 							<table class="table" style="margin-bottom: 0px">
@@ -273,11 +227,7 @@ a {
 		</div>
 	</div>
 
-	<footer >
-	<p>
-		&nbsp;版权所有&nbsp;&nbsp;2019
-	</p>
-	</footer>
+
 
 	<script>
     function menuBar(menuId) {
@@ -309,20 +259,6 @@ a {
         })
     }
 
-    function deleteSecondButton(second_id) {
-        var dblChoseAlert = simpleAlert({
-            "content": "确认删除这个分类？",
-            "buttons":{
-                "确定":function () {
-                    dblChoseAlert.close();
-                    deleteSecond(second_id);
-                },
-                "取消":function () {
-                    dblChoseAlert.close();
-                }
-            }
-        })
-    }
 
     function closeAddbar(bar_id) {
         var barId = "#" + bar_id;
@@ -413,84 +349,6 @@ a {
 	</script>
 
 	<script>
-    //user function
-    function enableUser(userId) {
-        var dblChoseAlert = simpleAlert({
-            "content": "确认激活用户？ 用户id:"+userId,
-            "buttons":{
-                "确定":function () {
-                    dblChoseAlert.close();
-                    setUserStatus(4, userId);
-                },
-                "取消":function () {
-                    dblChoseAlert.close();
-                }
-            }
-        })
-    }
-    
-    function disableUser(userId) {
-        var dblChoseAlert = simpleAlert({
-            "content": "确认禁用用户？ 用户id:"+userId,
-            "buttons":{
-                "确定":function () {
-                    dblChoseAlert.close();
-                    setUserStatus(5, userId);
-                },
-                "取消":function () {
-                    dblChoseAlert.close();
-                }
-            }
-        })
-    }
-
-    function deleteUser(userId) {
-        var dblChoseAlert = simpleAlert({
-            "content": "确认禁用用户？ 用户id:"+userId,
-            "buttons":{
-                "确定":function () {
-                    dblChoseAlert.close();
-                    delUser(userId);
-                },
-                "取消":function () {
-                    dblChoseAlert.close();
-                }
-            }
-        })
-    }
-
-    function setUserStatus(statusId, userId) {
-        $.getJSON("/secondshops/admin/user/update/status/"+statusId+"&"+userId, function (data) {
-            if (data === false){
-                alert("用户状态修改失败！");
-            } else {
-                document.getElementById("userTable").innerHTML = "";
-                $.each(data, function (i, type) {
-                    var userId = type.id;
-                    var userName = type.name;
-                    var userMobile = type.mobile;
-                    var userEmail = type.email;
-                    var userGender = type.gender;
-                    var userRegisterDate = type.registerDate;
-                    var userStatus = type.statusId === 4 ? "正常":"失效";
-                    var opt = type.statusId === 4 ? "<a onclick='disableUser("+userId+")'>禁用</a>":"<a onclick='enableUser("+userId+")'>激活</a>";
-                    var user = "<tr style=\"color: #666666\">"+
-                        "<td style=\"width: 8%\">"+userId+"</td>"+
-                        "<td style=\"width: 13%\">"+userName+"</td>"+
-                        "<td style=\"width: 14%\">"+userMobile+"</td>"+
-                        "<td style=\"width: 20%\">"+userEmail+"</td>"+
-                        "<td style=\"width: 5%\">"+userGender+"</td>"+
-                        "<td style=\"width: 20%\">"+userRegisterDate+"</td>"+
-                        "<td style=\"width: 10%\">"+userStatus+"</td>"+
-                        "<td style=\"width: 10%\"><a onclick='deleteUser("+userId+")'>删除</a>&nbsp;&nbsp;"+opt+"</td>"+
-                        "</tr>";
-                    $("#userTable").append(user);
-                });
-                alert("用户状态修改成功！");
-            }
-        });
-    }
-    
     function delUser(userId) {
         $.getJSON("/secondshops/admin/user/delete/"+userId, function (data) {
             if (data === false){
@@ -542,20 +400,7 @@ a {
         })
     }
     
-    function setGoodStatus(goodId) {
-        var dblChoseAlert = simpleAlert({
-            "content": "确认下架物品？ 物品id:"+goodId,
-            "buttons":{
-                "确定":function () {
-                    dblChoseAlert.close();
-                    setStatus(goodId);
-                },
-                "取消":function () {
-                    dblChoseAlert.close();
-                }
-            }
-        })
-    }
+
 
     function delGood(goodId) {
         $.getJSON("/secondshops/goods/userGoodEdit/delete/"+goodId, function (data) {
@@ -589,37 +434,6 @@ a {
         });
     }
 
-    function setStatus(goodId) {
-        $.getJSON("/secondshops/goods/userGoodEdit/updateGoodStatus/"+goodId, function (data) {
-            if (data){
-                $.getJSON("/secondshops/admin/goods/allGoods", function (data) {
-                    document.getElementById("goodTable").innerHTML = "";
-                    $.each(data, function (i, type) {
-                        var goodId = type.id;
-                        var goodName = type.name;
-                        var goodType = type.goodSecondType.name;
-                        var goodUserName = type.goodUser.name;
-                        var goodUploadeDate = type.uploadDate;
-                        var goodStatus = type.statusId === 0 ? '已下架':'在售';
-                        var opt = type.statusId === 1 ? "<a onclick='setGoodStatus("+goodId+")'>下架</a>":"";
-                        var good = "<tr style=\"color: #666666\">" +
-                            "<td style=\"width: 8%\">"+goodId+"</td>" +
-                            "<td style=\"width: 15%\">"+goodName+"</td>" +
-                            "<td style=\"width: 10%\">"+goodType+"</td>" +
-                            "<td style=\"width: 15%\">"+goodUserName+"</td>" +
-                            "<td style=\"width: 25%\">"+goodUploadeDate+"</td>" +
-                            "<td style=\"width: 13%\">"+goodStatus+"</td>" +
-                            "<td style=\"width: 15%\"><a onclick='deleteGood("+goodId+")'>删除</a>&nbsp;&nbsp;"+opt+"</td>" +
-                            "</tr>";
-                        $("#goodTable").append(good);
-                    })
-                });
-                alert("物品下架成功！");
-            } else {
-                alert("物品下架失败！");
-            }
-        });
-    }
 	</script>
 
 	<script src="<c:url value="/statics/bootstrap-3.3.0/js/bootstrap.js"/>"></script>

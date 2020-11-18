@@ -24,7 +24,7 @@
 		style="position: relative; transform: translate(0, 0)">
 		<div >
 			<div class="col-md-12 r1"
-				style="background-color: #e4e4e4; height: 40px;">
+				 height: 40px;">
 				<div style="margin-top: 5px">
 					<B style="color: #c4c4c4; font-size: 20px;">物品详细信息</B>
 				</div>
@@ -43,7 +43,7 @@
 						
 						<spring:bind path="firstTypeId">
 							<div class="form-group">
-								<form:label path="firstTypeId" cssClass="control-label">一级分类</form:label>
+								<form:label path="firstTypeId" cssClass="control-label">分类</form:label>
 								<form:select id="goodType" onchange="selectValue()"
 									cssClass="form-control" path="firstTypeId"
 									items="${firstTypes}" itemLabel="name" itemValue="id"></form:select>
@@ -80,13 +80,12 @@
 						<div class="form-group" align="right">
 							<c:choose>
 								<c:when test="${good.id == 0}">
-									<button type="submit" class="btn"
-										style="background-color: #e5e5e5">添加商品</button>
+									<button type="submit" class="btn">添加商品</button>
 								</c:when>
 								
 								<c:otherwise>
 									<button disabled="disabled" type="submit" class="btn"
-										style="background-color: #e5e5e5">已获取商品ID${good.id}</button>
+										>已获取商品ID${good.id}</button>
 								</c:otherwise>
 							</c:choose>
 						</div>
@@ -95,28 +94,26 @@
 			</div>
 			
 			<div class="col-md-12 r1"
-				style="background-color: #e4e4e4; height: 40px; margin-top: 20px;">
+				 height: 40px; margin-top: 20px;">
 				<div style="margin-top: 5px">
 					<B style="color: #c4c4c4; font-size: 20px;">物品图片信息</B>
 				</div>
 			</div>
 			
 			<div class="col-md-12 r2"
-				style="background-color: #f9f9f9; padding-top: 15px; padding-bottom: 15px;">
+				 padding-top: 15px; padding-bottom: 15px;">
 				<div class="col-md-12 r"
-					style="margin-top: 15px; background-color: #ffffff; padding: 0px">
+					style="margin-top: 15px;  padding: 0px">
 					<div class="col-md-12"
 						style="display: ${good.id == 0 ? '' : 'none'}">
 						<div class="col-md-12" align="center"
 							style="height: 100px; padding-top: 20px">
-							<h3 style="color: #dcdcdc">请先填写物品信息，获取物品ID</h3>
+							<h3 style="color: #dcdcdc">请先填写物品信息</h3>
 						</div>
 					</div>
 					
-					<div class="col-md-12"
-						style="padding: 0px; display: ${good.id == 0 ? 'none' : ''}">
-						<form action="/secondshops/goods/publishGood/uploadImage"
-							method="post" enctype="multipart/form-data">
+					<div class="col-md-12"style="padding: 0px; ">
+						<form action="/secondshops/goods/publishGood/uploadImage"method="post" enctype="multipart/form-data">
 							<input name="goodId" value="${good.id}" style="display: none">
 							<div class="col-md-12" style="padding: 0px">
 								<div class="col-md-4" style="padding: 15px" align="center">
@@ -173,13 +170,13 @@
 							
 							<div class="col-md-12" style="padding: 15px">
 								<div class="col-md-6" style="padding: 0px">
-									<p id="addBtn" class="btn" style="background-color: #e5e5e5"
+									<p id="addBtn" class="btn" 
 										onclick="addImg()">添加图片</p>
 								</div>
 								
 								<div class="col-md-6" align="right" style="padding: 0px">
 									<button type="submit" class="btn"
-										style="background-color: #e5e5e5">提交</button>
+										>提交</button>
 								</div>
 							</div>
 						</form>

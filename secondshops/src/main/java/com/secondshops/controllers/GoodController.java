@@ -60,9 +60,9 @@ public class GoodController {
 		
 		List<FirstType> firstTypes = typeService.getAllFirstType();
 		
-		  for (FirstType firstType : firstTypes) {
-			  firstType.setSecondType(typeService
-		  .getSecondTypeByFirstTypeId(firstType.getId())); }
+//		  for (FirstType firstType : firstTypes) {
+//			  firstType.setSecondType(typeService
+//		  .getSecondTypeByFirstTypeId(firstType.getId())); }
 		 
 		model.addAttribute("firstTypes", firstTypes);
 		model.addAttribute("goods", goods);

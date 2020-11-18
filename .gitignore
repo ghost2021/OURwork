@@ -1,1 +1,16 @@
 /.metadata/
+secondshops/src/main/java/com/secondshops/controllers/GoodController.java
+secondshops/src/main/webapp/WEB-INF/views/admin/adminLogin.jsp
+secondshops/src/main/webapp/WEB-INF/views/goods/goodInfo.jsp
+secondshops/src/main/webapp/WEB-INF/views/user/userProfile.jsp
+secondshops/target/classes/com/secondshops/controllers/GoodController.class
+secondshops/src/main/webapp/WEB-INF/views/goods/publishGood.jsp
+secondshops/src/main/webapp/WEB-INF/views/admin/adminPage.jsp
+secondshops/src/main/java/com/secondshops/controllers/GoodController.java
+secondshops/src/main/webapp/WEB-INF/views/admin/adminLogin.jsp
+secondshops/src/main/webapp/WEB-INF/views/goods/goodInfo.jsp
+secondshops/src/main/webapp/WEB-INF/views/user/userProfile.jsp
+secondshops/target/classes/com/secondshops/controllers/GoodController.class
+secondshops/src/main/webapp/WEB-INF/views/goods/publishGood.jsp
+secondshops/src/main/webapp/WEB-INF/views/admin/adminPage.jsp
+*.jsp

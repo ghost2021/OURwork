@@ -77,15 +77,15 @@
 			</div>
 
 			<div class="col-md-12 r1"
-				style="background-color: #e4e4e4; height: 40px">
+				 height: 40px">
 				<div class="col-md-6" style="margin-top: 5px">
 					<B style="color: #c4c4c4; font-size: 20px">我收藏的物品</B>
 				</div>
 			</div>
 			
 			<div class="col-md-12 r2"
-				style="background-color: #f9f9f9; padding-top: 15px; padding-bottom: 15px; margin-bottom: 20px;">
-				<div class="col-md-12 r" style="background-color: #ffffff;">
+				 padding-top: 15px; padding-bottom: 15px; margin-bottom: 20px;">
+				<div class="col-md-12 r" >
 					<p></p>
 					<p style="color: #c4c4c4; font-size: 20px; margin-bottom: 0px;"
 						align="center">
@@ -138,15 +138,15 @@
 			</div>
 
 			<div class="col-md-12 r1"
-				style="background-color: #e4e4e4; height: 40px">
+				 height: 40px">
 				<div class="col-md-6" style="margin-top: 5px">
 					<B style="color: #c4c4c4; font-size: 20px">我的物品</B>
 				</div>
 			</div>
 			
 			<div class="col-md-12 r2"
-				style="background-color: #f9f9f9; padding-top: 15px; padding-bottom: 15px; margin-bottom: 20px;">
-				<div class="col-md-12 r" style="background-color: #ffffff;">
+				 padding-top: 15px; padding-bottom: 15px; margin-bottom: 20px;">
+				<div class="col-md-12 r" >
 					<p></p>
 					<p style="color: #c4c4c4; font-size: 20px; margin-bottom: 0px;"
 						align="center">

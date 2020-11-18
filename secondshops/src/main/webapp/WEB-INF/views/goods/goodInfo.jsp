@@ -35,7 +35,7 @@
 	<div class="container">
 		<div class="col-md-9">
 			<div class="col-md-12 r1"
-				style="background-color: #e4e4e4; height: 40px">
+				 height: 40px">
 				<div class="col-md-8" style="margin-top: 5px">
 					<B style="color: #c4c4c4; font-size: 20px">物品信息</B>
 				</div>
@@ -52,7 +52,7 @@
 			</div>
 			
 			<div class="col-md-12 r2"
-				style="background-color: #f9f9f9; padding: 0px; padding-bottom: 15px">
+				 padding: 0px; padding-bottom: 15px">
 				<div class="col-md-12" style="margin-top: 40px;">
 					<div class="col-md-7" align="center;">
 						<div style="width: 100%" align="center">
@@ -151,7 +151,7 @@
 			</div>
 
 			<div class="col-md-12 r1"
-				style="background-color: #e4e4e4; height: 40px; margin-top: 20px;">
+				 height: 40px; margin-top: 20px;">
 				<div class="col-md-6" style="margin-top: 5px">
 					<B style="color: #c4c4c4; font-size: 20px">物品描述</B>
 				</div>
@@ -209,26 +209,9 @@
         })
     }
 
-    function replyFun(replyId, replyToUser) {
-        if (${sessionScope.user != null}) {
-            var replyDiv = document.getElementById(replyId);
-            var toUser = "回复 " + replyToUser;
-            var replyToUserId = "#" + replyId + "replyToUser";
-            var replyText = "#" + replyId + "replyText";
-            if (replyDiv.style.display === "none") {
-                replyDiv.style.display = "";
-            }
-            $(replyToUserId).attr("value", replyToUser);
-            $(replyText).attr("placeholder", toUser);
-            console.log("value:" + $(replyToUserId).attr("value"));
-            console.log("placeholder:" + $(replyText).attr("placeholder"));
-        }
-    }
+ 
 
-    function closeReplyDiv(replyDiv) {
-        document.getElementById(replyDiv).style.display = "none";
-    }
-
+ 
     $(function () {
             var message = "${message}";
             if (message !== "" && message !== null) {
@@ -242,56 +225,7 @@
     }
 	</script>
 	
-	<script>
-    function buyButton() {
-        var dblChoseAlert = simpleAlert({
-            "content": "您即将购买该物品!",
-            "buttons":{
-                "确定":function () {
-                    dblChoseAlert.close();
-                    getBuy();
-                },
-                "取消":function () {
-                    dblChoseAlert.close();
-                }
-            }
-        })
-    }
-    
-    function getBuy() {
-        if (${sessionScope.user == null}) {
-            alert("请先登录！");
-            $(window).attr('location','/secondshops/login');
-        } else {
-            alert("我们正在为您创建订单！");
-            var order = {
-                "goodName": "${goodInfo.name}",
-                "seller": "${goodInfo.goodUser.name}",
-                "sellerId": ${goodInfo.goodUser.id},
-                "customer": "${sessionScope.user.name}",
-                "customerId": "${sessionScope.user.id}",
-                "goodId": ${goodInfo.id},
-                "money": ${goodInfo.prise}
-            };
-            console.log(order);
-            $.ajax({
-                type:"POST",
-                url:"/secondshops/user/order/create",
-                contentType: "application/json", //必须这样写
-                dataType:"json",
-                data:JSON.stringify(order),//要提交是json字符串
-                success:function (data) {
-                    if (data === false){
-                        alert("由于未知原因，订单创建失败！");
-                    } else {
-                        alert("订单创建成功，请及时与卖家联系，线下验货交易！");
-                        $(window).attr('location','/secondshops/user/orderInfo?orderId=' + data);
-                    }
-                }
-            });
-        }
-    }
-	</script>
+
 	<script src="<c:url value="/statics/bootstrap-3.3.0/js/bootstrap.js"/>"></script>
 	<script src="<c:url value="/statics/jquery-ui-1.12.1/jquery-ui.js"/>"></script>
 	<script

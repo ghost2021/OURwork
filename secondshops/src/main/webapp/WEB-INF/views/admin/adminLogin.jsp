@@ -18,7 +18,7 @@
 	</div>
 
 	<div class="container" style="position: relative; margin: 80px auto;">
-		<div class="col-md-6 login-back"
+		<div 
 			style="position: absolute; left: 50%; transform: translateX(-50%);">
 			<form action="<c:url value="/admin/adminLogin"/>" method="post">
 				<div class="form-group">
