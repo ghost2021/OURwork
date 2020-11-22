@@ -47,7 +47,7 @@ a {
 				<div  onclick="menuBar('menu1')" 
 					align="center">
 					<p>
-						<B style="font-size: 20px;  cursor: pointer">物品分类管理</B>
+						<B style="font-size: 20px;  cursor: pointer">分类管理</B>
 					</p>
 				</div>
 				
@@ -80,7 +80,7 @@ a {
 			style="height: 92%; padding-left: 0px; padding-right: 30px; float: right;">
 			<div id="menu1-context" ">
 				<div class="col-md-12" align="center">
-					<h3>物品分类管理</h3>
+					<h3>分类管理</h3>
 				</div>
 				
 				
@@ -345,10 +345,24 @@ a {
                 });
             }
         })
-    }
+    } 
 	</script>
 
 	<script>
+    function deleteUser(userId) {
+        var dblChoseAlert = simpleAlert({
+            "content": "确认删除物品？ 物品id:"+userId,
+            "buttons":{
+                "确定":function () {
+                    dblChoseAlert.close();
+                    delUser(userId);
+                },
+                "取消":function () {
+                    dblChoseAlert.close();
+                }
+            }
+        })
+    }
     function delUser(userId) {
         $.getJSON("/secondshops/admin/user/delete/"+userId, function (data) {
             if (data === false){

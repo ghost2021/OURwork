@@ -71,7 +71,7 @@
 					
 					<div class="col-md-3">
 						<a
-							href="/secondshops/user/userEdit?userId=${sessionScope.user.getId()}">修改个人资料</a>
+							href="#">修改个人资料</a>
 					</div>
 				</div>
 			</div>

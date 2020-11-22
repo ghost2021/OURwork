@@ -82,8 +82,8 @@ public class GoodController {
 		}
 		Good good = new Good();
 		List<FirstType> firstTypes = typeService.getAllFirstType();
-		List<Good> goods = goodService.getAllGoods(0, 5);
-		model.addAttribute("goods", goods);
+		//List<Good> goods = goodService.getAllGoods(0, 5);
+		//model.addAttribute("goods", goods);
 		model.addAttribute("good", good);
 		model.addAttribute("firstTypes", firstTypes);
 		return "goods/publishGood";
@@ -122,8 +122,7 @@ public class GoodController {
 		if (!mainFile.isEmpty()) {
 			String fileName = goodId + randomString.getRandomString(10);
 			String contentType = mainFile.getContentType();
-			String imageName = contentType
-					.substring(contentType.indexOf("/") + 1);
+			String imageName = contentType.substring(contentType.indexOf("/") + 1);
 			name = fileName + "." + imageName;
 			mainFile.transferTo(new File(pathRoot + name));
 			String photoUrl = filePath + "/" + name;

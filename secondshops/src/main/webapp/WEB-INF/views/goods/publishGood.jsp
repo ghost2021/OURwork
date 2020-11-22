@@ -190,34 +190,7 @@
 	<jsp:include page="../home/footer.jsp" />
 
 	<script>
-		$(function() {
-			var goodType = $("#goodType option:selected").attr("value");
-			$.getJSON("/secondshops/type/secondType/" + goodType, function(
-					data) {
-				$.each(data, function(i, type) {
-					var id = type.id;
-					var name = type.name;
-					var option = '<option value= \"'+ id +'\"> ' + name
-							+ '</option>';
-					$("#secondType").append(option);
-				})
-			});
-		});
-		
-		function selectValue() {
-			var goodType = $("#goodType option:selected").attr("value");
-			$.getJSON("/secondshops/type/secondType/" + goodType, function(
-					data) {
-				document.getElementById("secondType").innerHTML = "";
-				$.each(data, function(i, type) {
-					var id = type.id;
-					var name = type.name;
-					var option = '<option value= \"'+ id +'\"> ' + name
-							+ '</option>';
-					$("#secondType").append(option);
-				})
-			});
-		}
+
 		
 		function checkNum() {
 			var prise = document.getElementById("prise").value;
@@ -243,15 +216,7 @@
 			myimg.src = URL.createObjectURL(files);
 		}
 		
-		function addImg() {
-			if (document.getElementById("addImg").style.display === "none") {
-				document.getElementById("addImg").style.display = "";
-				document.getElementById("addBtn").innerHTML = "取消添加";
-			} else {
-				document.getElementById("addImg").style.display = "none";
-				document.getElementById("addBtn").innerHTML = "添加图片";
-			}
-		}
+
 	</script>
 
 	<script src="<c:url value="/statics/bootstrap-3.3.0/js/bootstrap.js"/>"></script>
